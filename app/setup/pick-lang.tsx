@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 const languages = [
   { name: "French", nativeName: "Français", flag: "🇫🇷", code: "fr" },
   { name: "Spanish", nativeName: "Español", flag: "🇪🇸", code: "es" },
-  { name: "Portuguese", nativeName: "Português", flag: "🇵🇹", code: "pt" },
+  { name: "Portuguese", nativeName: "Português", flag: "🇧🇷", code: "pt" },
   { name: "German", nativeName: "Deutsch", flag: "🇩🇪", code: "de" },
 ];
 
