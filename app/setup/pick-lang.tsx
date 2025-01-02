@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 const languages = [
   { name: "French", nativeName: "Français", flag: "🇫🇷", code: "fr" },
@@ -11,15 +12,17 @@ const languages = [
 
 export default function LanguagePicker() {
   return (
-    <div>
-      <h1>I want to learn...</h1>
-      <ul>
-        {languages.map((language) => (
-          <li key={language.code}>
-            {language.flag} {language.name} ({language.nativeName})
-          </li>
-        ))}
-      </ul>
+    <div className="p-6 flex flex-col items-center justify-center">
+      <Card className="w-full max-w-md p-8">
+        <h1 className="text-2xl font-bold mb-4">I want to learn...</h1>
+        <div>
+          {languages.map((language) => (
+            <Button key={language.code} className="m-2">
+              {language.flag} {language.name}
+            </Button>
+          ))}
+        </div>
+      </Card>
     </div>
   );
 }
