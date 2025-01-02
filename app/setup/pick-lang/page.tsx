@@ -115,6 +115,10 @@ export default function LanguagePicker() {
     document.documentElement.classList.toggle("dark");
   };
 
+  const sortedLanguages = [...languages].sort(
+    (a, b) => Number(a.disabled) - Number(b.disabled)
+  );
+
   return (
     <div className="min-h-screen bg-[#faf8f6] dark:bg-[#2a2a3c] p-6 flex flex-col items-center justify-center transition-colors duration-300">
       <Button
@@ -131,7 +135,7 @@ export default function LanguagePicker() {
           I want to learn...
         </h1>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {languages.map((language) => (
+          {sortedLanguages.map((language) => (
             <motion.div
               key={language.code}
               whileHover={{ scale: language.disabled ? 0.99 : 1.02 }}
