@@ -15,7 +15,11 @@ const languages = [
   { name: "Dutch", nativeName: "Nederlands", flag: "🇳🇱", code: "nl" },
   { name: "Swedish", nativeName: "Svenska", flag: "🇸🇪", code: "sv" },
   { name: "Danish", nativeName: "Dansk", flag: "🇩🇰", code: "da" },
-  { name: "Norwegian", nativeName: "Norsk", flag: "🇳🇴", code: "no" },
+  { name: "Japanese", nativeName: "日本語", flag: "🇯🇵", code: "ja" },
+  { name: "Chinese", nativeName: "中文", flag: "🇨🇳", code: "zh" },
+  { name: "Russian", nativeName: "Русский", flag: "🇷🇺", code: "ru" },
+  { name: "Korean", nativeName: "한국어", flag: "🇰🇷", code: "ko" },
+  { name: "Arabic", nativeName: "العربية", flag: "🇸🇦", code: "ar" },
 ];
 
 export default function LanguagePicker() {
