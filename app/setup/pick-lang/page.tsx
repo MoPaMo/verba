@@ -11,6 +11,11 @@ const languages = [
   { name: "Spanish", nativeName: "Español", flag: "🇪🇸", code: "es" },
   { name: "Portuguese", nativeName: "Português", flag: "🇧🇷", code: "pt" },
   { name: "German", nativeName: "Deutsch", flag: "🇩🇪", code: "de" },
+  { name: "Italian", nativeName: "Italiano", flag: "🇮🇹", code: "it" },
+  { name: "Dutch", nativeName: "Nederlands", flag: "🇳🇱", code: "nl" },
+  { name: "Swedish", nativeName: "Svenska", flag: "🇸🇪", code: "sv" },
+  { name: "Danish", nativeName: "Dansk", flag: "🇩🇰", code: "da" },
+  { name: "Norwegian", nativeName: "Norsk", flag: "🇳🇴", code: "no" },
 ];
 
 export default function LanguagePicker() {
@@ -43,7 +48,7 @@ export default function LanguagePicker() {
         <h1 className="text-3xl font-bold text-center mb-8 text-[#7c956c] dark:text-[#b3c4a5]">
           I want to learn...
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {languages.map((language) => (
             <motion.div
               key={language.code}
