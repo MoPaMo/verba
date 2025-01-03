@@ -4,109 +4,17 @@ import { useState } from "react";
 import { LessonCircle } from "./lesson-circle";
 import { LessonDetails } from "./lesson-details";
 import { SectionHeader } from "./section-header";
-import type { Lesson } from "@/types/lessons";
+import type { Lesson, Unit } from "@/types/lessons";
 
-const LESSONS: Lesson[] = [
-  {
-    id: 1,
-    title: "Basics",
-    category: "Grammar",
-    xpReward: 10,
-    completed: true,
-    locked: false,
-    description:
-      "Learn the fundamentals of Spanish grammar and basic sentence structure. Perfect for beginners!",
-  },
-  {
-    id: 2,
-    title: "To Be",
-    category: "Verbs",
-    xpReward: 15,
-    completed: true,
-    locked: false,
-    description:
-      "Master the essential 'ser' and 'estar' verbs. Understand when to use each one.",
-  },
-  {
-    id: 3,
-    title: "Nouns",
-    category: "Vocabulary",
-    xpReward: 20,
-    completed: false,
-    locked: false,
-    description:
-      "Learn common nouns and their gender. Build your basic Spanish vocabulary.",
-  },
-  {
-    id: 4,
-    title: "Articles",
-    category: "Grammar",
-    xpReward: 15,
-    completed: false,
-    locked: true,
-    description:
-      "Understand how to use 'el', 'la', 'los', and 'las'. Master Spanish articles.",
-  },
-  {
-    id: 5,
-    title: "Present",
-    category: "Verbs",
-    xpReward: 25,
-    completed: false,
-    locked: true,
-    description:
-      "Learn present tense conjugations for regular and irregular verbs.",
-  },
-  {
-    id: 6,
-    title: "Food",
-    category: "Vocabulary",
-    xpReward: 20,
-    completed: false,
-    locked: true,
-    description:
-      "Essential food and drink vocabulary. Learn how to order at restaurants.",
-  },
-  {
-    id: 7,
-    title: "Numbers",
-    category: "Vocabulary",
-    xpReward: 15,
-    completed: false,
-    locked: true,
-    description:
-      "Count and use numbers in Spanish. Learn cardinal and ordinal numbers.",
-  },
-  {
-    id: 8,
-    title: "Colors",
-    category: "Vocabulary",
-    xpReward: 15,
-    completed: false,
-    locked: true,
-    description: "Learn color names and their agreements with nouns.",
-  },
-];
+type LearningPathProps = {
 
-const SECTIONS = [
-  {
-    title: "Getting Started",
-    description: "Master the basics of Spanish language",
-    lessons: LESSONS.slice(0, 3),
-  },
-  {
-    title: "Essential Grammar",
-    description: "Build your foundation with core grammar concepts",
-    lessons: LESSONS.slice(3, 5),
-  },
-  {
-    title: "Practical Vocabulary",
-    description: "Learn useful everyday words and phrases",
-    lessons: LESSONS.slice(5),
-  },
-];
+    units: Unit[];
+  
+    onSelectLesson: (lesson: Lesson, unitId: string) => void;
+  
+  };
 
-export function LearningPath() {
+export function LearningPath({ units, onSelectLesson }: LearningPathProps) {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
 
   const handleLessonClick = (lesson: Lesson) => {
@@ -129,7 +37,7 @@ export function LearningPath() {
 
   return (
     <div className="relative w-full max-w-lg mx-auto px-4 py-20">
-      {SECTIONS.map((section) => (
+      {units.map((section) => (
         <div key={section.title} className="mb-12 last:mb-0">
           <SectionHeader
             title={section.title}

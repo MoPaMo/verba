@@ -1,11 +1,12 @@
 export interface Lesson {
-  id: number;
+  id: string;
   title: string;
   category: "Grammar" | "Verbs" | "Vocabulary";
   xpReward: number;
   completed: boolean;
   locked: boolean;
   description: string;
+  type: string;
 }
 export interface Section {
   title: string;
@@ -19,3 +20,12 @@ export interface UserStats {
   streak: number;
   level: number;
 }
+
+export interface Unit {
+    id: string;
+    title: string;
+    description: string;
+    completed: boolean;
+    locked: boolean;
+    lessons: Lesson[];
+  }

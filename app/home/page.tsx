@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { StatsBar } from "@/components/stats-bar";
 import { LearningPath } from "@/components/learning-path";
-import type { Unit, Lesson, UserStats } from "@/types/lessons";
+import type { Lesson, UserStats, Unit } from "@/types/lessons";
+
+
 
 const mockUnits: Unit[] = [
   {
