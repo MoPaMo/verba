@@ -7,12 +7,10 @@ import { SectionHeader } from "./section-header";
 import type { Lesson, Unit } from "@/types/lessons";
 
 type LearningPathProps = {
+  units: Unit[];
 
-    units: Unit[];
-  
-    onSelectLesson: (lesson: Lesson, unitId: string) => void;
-  
-  };
+  onSelectLesson: (lesson: Lesson, unitId: string) => void;
+};
 
 export function LearningPath({ units, onSelectLesson }: LearningPathProps) {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
