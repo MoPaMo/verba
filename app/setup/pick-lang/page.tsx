@@ -110,11 +110,6 @@ export default function LanguagePicker() {
     }
   }, []);
 
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-    document.documentElement.classList.toggle("dark");
-  };
-
   const sortedLanguages = [...languages].sort(
     (a, b) => Number(a.disabled) - Number(b.disabled)
   );
