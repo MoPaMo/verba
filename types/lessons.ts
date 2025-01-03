@@ -1,7 +1,7 @@
 export interface Lesson {
   id: string;
   title: string;
-  category: "Grammar" | "Verbs" | "Vocabulary";
+  category: string;
   xpReward: number;
   completed: boolean;
   locked: boolean;
