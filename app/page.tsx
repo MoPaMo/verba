@@ -18,6 +18,7 @@ const languages: Language[] = [
     code: "de",
     disabled: false,
   },
+  // Add other languages as needed...
 ];
 
 const features = [
@@ -108,6 +109,25 @@ export default function LandingPage() {
               </p>
             </Card>
           ))}
+        </div>
+      </section>
+
+      <section className="container mx-auto px-4 py-20">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#4a4a4a] dark:text-[#e5e3e0] transition-colors duration-300">
+            Ready to Start Your Language Journey?
+          </h2>
+          <p className="text-xl mb-8 text-[#8c8c8c] dark:text-[#a09f9f] transition-colors duration-300">
+            Join thousands of learners already experiencing the future of
+            language learning.
+          </p>
+          <Button
+            size="lg"
+            className="bg-[#7c956c] hover:bg-[#6a8159] dark:bg-[#b3c4a5] dark:hover:bg-[#9fb38f] text-white dark:text-[#2a2a3c] transition-all duration-300"
+          >
+            Try Verba Free
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
         </div>
       </section>
     </div>
