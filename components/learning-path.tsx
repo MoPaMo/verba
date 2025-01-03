@@ -18,6 +18,7 @@ export function LearningPath({ units, onSelectLesson }: LearningPathProps) {
   const handleLessonClick = (lesson: Lesson) => {
     if (selectedLesson?.id === lesson.id) {
       console.log(`Starting lesson: ${lesson.title}`);
+      onSelectLesson(lesson, "unit-id");
       setSelectedLesson(null);
     } else {
       setSelectedLesson(lesson);
