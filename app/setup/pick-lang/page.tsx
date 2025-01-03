@@ -121,7 +121,9 @@ export default function LanguagePicker() {
 
   return (
     <div className="min-h-screen bg-[#faf8f6] dark:bg-[#2a2a3c] p-6 flex flex-col items-center justify-center transition-colors duration-300">
-      <div className="absolute right-4 top-4 sm:none"><ThemeToggle /> </div>
+      <div className="absolute right-4 top-4 hidden sm:block">
+        <ThemeToggle />
+      </div>
 
       <Card className="w-full max-w-2xl p-8 bg-[#f5f2ef]/80 dark:bg-[#363646]/80 backdrop-blur-sm border-none shadow-lg dark:shadow-black/10">
         <h1 className="text-3xl font-bold text-center mb-8 text-[#7c956c] dark:text-[#b3c4a5]">
