@@ -18,7 +18,13 @@ const languages: Language[] = [
     code: "de",
     disabled: false,
   },
-  // Add other languages as needed...
+    {
+    name: "Spanish",
+    nativeName: "Español",
+    flag: "🇪🇸",
+    code: "es",
+    disabled: false,
+  },
 ];
 
 const features = [
