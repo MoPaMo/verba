@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import ThemeToggle from "@/components/ThemeToggle";
-import { useState, useEffect } from "react";
 
 const languages = [
   {
