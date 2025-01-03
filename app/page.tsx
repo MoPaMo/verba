@@ -18,7 +18,7 @@ const languages: Language[] = [
     code: "de",
     disabled: false,
   },
-    {
+  {
     name: "Spanish",
     nativeName: "Español",
     flag: "🇪🇸",
