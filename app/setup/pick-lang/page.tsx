@@ -101,15 +101,6 @@ const languages = [
 ];
 
 export default function LanguagePicker() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setIsDark(true);
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
-
   const sortedLanguages = [...languages].sort(
     (a, b) => Number(a.disabled) - Number(b.disabled)
   );
