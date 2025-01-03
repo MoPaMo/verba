@@ -47,7 +47,7 @@ const features = [
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-[#faf8f6] dark:bg-[#2a2a3c] transition-colors duration-300">
+    <>
       <section className="container mx-auto px-4 pt-20 pb-32">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-[#4a4a4a] dark:text-[#e5e3e0] transition-colors duration-300">
@@ -135,6 +135,6 @@ export default function LandingPage() {
           </Button>
         </div>
       </section>
-    </div>
+    </>
   );
 }

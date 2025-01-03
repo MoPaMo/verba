@@ -104,7 +104,7 @@ export default function LanguagePicker() {
   );
 
   return (
-    <div className="min-h-screen bg-[#faf8f6] dark:bg-[#2a2a3c] p-6 flex flex-col items-center justify-center transition-colors duration-300">
+    <div className="flex flex-col items-center justify-center ">
       
 
       <Card className="w-full max-w-2xl p-8 bg-[#f5f2ef]/80 dark:bg-[#363646]/80 backdrop-blur-sm border-none shadow-lg dark:shadow-black/10">

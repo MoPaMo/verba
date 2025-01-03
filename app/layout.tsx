@@ -18,8 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <div className="min-h-screen bg-background font-sans antialiased">
-          <div className="absolute right-4 top-4 hidden sm:block">
+        <div className="min-h-screen bg-background font-sans antialiased transition-colors duration-300">
+          <div className="absolute right-4 top-4 hidden sm:block ">
             <ThemeToggle />
           </div>
           {children}
