@@ -129,7 +129,7 @@ export function LearningPath() {
 
   return (
     <div className="relative w-full max-w-lg mx-auto px-4 py-20">
-      {SECTIONS.map((section, sectionIndex) => (
+      {SECTIONS.map((section) => (
         <div key={section.title} className="mb-12 last:mb-0">
           <SectionHeader
             title={section.title}
