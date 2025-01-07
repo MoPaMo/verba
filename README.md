@@ -9,9 +9,9 @@ Try the (nonfunctional) preview here: https://verba.mopamo.dev
 
 
 Features (WIP and coming):
-- Streaks
-- Units
-- 6+ different excercise types
+- 🔥 Streaks
+- 📚 Units
+- 📑 6+ different excercise types
   - Fill the gap (+ type with word blocks)
   - Translate this vocab 
   - Type what you hear (+ type with word blocks)
@@ -19,8 +19,8 @@ Features (WIP and coming):
   - Pick the right response
   - Chat with AI
   - Describe this image
-- Automatical lesson generation using gpt-4o-mini (WIP)
-- Glossary
-- Log In / Out
+- 🧠 Automatical lesson generation using gpt-4o-mini (WIP)
+- 📖 Glossary
+- 🔐 Log In / Out
 
 Note: Some components were written using v0, I tried to mark these in the commit messges.
