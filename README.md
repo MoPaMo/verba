@@ -1,10 +1,11 @@
 # verba
 
-AI powered language lesrning App
+AI powered language learning app!
+Written in React + NextJS, will use an express server and gpt-4o-mini for chats / lesson gnerations. 
 
 ! This is a WIP because I meeded to ship it for sticky holidays, so for now just the layout works... !
 
-https://verba.mopamo.dev
+Try the (nonfunctional) preview here: https://verba.mopamo.dev
 
 
 Features (WIP and coming):
@@ -19,6 +20,7 @@ Features (WIP and coming):
   - Chat with AI
   - Describe this image
 - Automatical lesson generation using gpt-4o-mini (WIP)
-- 
+- Glossary
+- Log In / Out
 
 Note: Some components were written using v0, I tried to mark these in the commit messges.
