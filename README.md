@@ -1,7 +1,7 @@
 # verba
 
 AI powered language learning app!
-Written in React + NextJS, will use an express server and gpt-4o-mini for chats / lesson gnerations. 
+Written in React + NextJS, will use an express server and gpt-4o-mini for chats / lesson generation. 
 
 ! This is a WIP because I meeded to ship it for sticky holidays, so for now just the layout works... !
 
