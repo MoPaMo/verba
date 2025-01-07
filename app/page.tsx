@@ -1,6 +1,7 @@
 import { Language } from "@/types/languages";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+
 import { ArrowRight, Globe2, MessageSquare, Sparkles } from "lucide-react";
 const languages: Language[] = [
   {
@@ -29,18 +30,18 @@ const languages: Language[] = [
 const features = [
   {
     icon: Sparkles,
-    title: "AI-Powered Learning",
+    title: "AI-Powered",
     description:
-      "Personalized lessons that adapt to your learning style and pace",
+      "Personalized lessons that adapt to your learning style and excercise exactly what you need. ",
   },
   {
     icon: MessageSquare,
-    title: "Interactive Conversations",
-    description: "Practice with our AI tutors in real-world scenarios",
+    title: "Conversations",
+    description: "Practice with our AI chats in real-world like scenarios",
   },
   {
     icon: Globe2,
-    title: "Cultural Immersion",
+    title: "Culture",
     description: "Learn not just the language, but the culture behind it",
   },
 ];
@@ -51,12 +52,13 @@ export default function LandingPage() {
       <section className="container mx-auto px-4 pt-20 pb-32">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-[#4a4a4a] dark:text-[#e5e3e0] transition-colors duration-300">
-            Learn Languages with AI
+            Verba - Learn Languages with AI
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-[#8c8c8c] dark:text-[#a09f9f] transition-colors duration-300">
             Experience a new way of language learning with Verba. Powered by AI,
             personalized for you.
           </p>
+
           <Button
             size="lg"
             className="bg-[#7c956c] hover:bg-[#6a8159] dark:bg-[#b3c4a5] dark:hover:bg-[#9fb38f] text-white dark:text-[#2a2a3c] transition-all duration-300"
