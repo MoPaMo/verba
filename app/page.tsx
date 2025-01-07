@@ -1,7 +1,7 @@
 import { Language } from "@/types/languages";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import Link from 'next/link';
+import Link from "next/link";
 import { ArrowRight, Globe2, MessageSquare, Sparkles } from "lucide-react";
 const languages: Language[] = [
   {
@@ -59,15 +59,15 @@ export default function LandingPage() {
             personalized for you.
           </p>
 
-          <Button
-as={Link}
-href={'/home'}
-            size="lg"
-            className="bg-[#7c956c] hover:bg-[#6a8159] dark:bg-[#b3c4a5] dark:hover:bg-[#9fb38f] text-white dark:text-[#2a2a3c] transition-all duration-300"
-          >
-            Start Learning Now
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <Link href="/home">
+            <Button
+              size="lg"
+              className="bg-[#7c956c] hover:bg-[#6a8159] dark:bg-[#b3c4a5] dark:hover:bg-[#9fb38f] text-white dark:text-[#2a2a3c] transition-all duration-300"
+            >
+              Start Learning Now
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </section>
 
