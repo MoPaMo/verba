@@ -58,17 +58,7 @@ export function LearningPath({ units, onSelectLesson }: LearningPathProps) {
                     }
                   `}
                 >
-                  <div
-                    className={`
-                      absolute top-1/2 hidden md:block
-                      ${
-                        index % 2 === 0
-                          ? "left-[calc(50%+2.5rem)] right-0"
-                          : "right-[calc(50%+2.5rem)] left-0"
-                      }
-                      h-0.5 bg-[#e5e3e0] dark:bg-[#454558]
-                    `}
-                  />
+                  
                   <div
                     className={`relative ${
                       index % 2 === 0 ? "md:mr-8" : "md:ml-8"
