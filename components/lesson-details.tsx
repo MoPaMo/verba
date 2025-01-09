@@ -21,14 +21,13 @@ export function LessonDetails({
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="absolute left-1/2 -translate-x-1/2 mt-4 w-72 z-20"
+      className="absolute mt-4 w-72 z-20 "
       style={{
         top: "100%",
       }}
     >
       <div className="relative">
-        <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 bg-[#f5f2ef] dark:bg-[#363646] z-10" />
-
+        <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 bg-[#f5f2ef] dark:bg-[#363646] z-10" /> {/*tip*/}
         <Card className="relative z-20 p-4 bg-[#f5f2ef]/95 dark:bg-[#363646]/95 backdrop-blur-sm border-none shadow-lg">
           <button
             onClick={onClose}
