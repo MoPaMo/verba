@@ -10,13 +10,13 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import Link from "next/link";
 import { ChevronRight, LogOut, Moon, Sun } from "lucide-react";
-import { Accessibility, Brain, GraduationCap } from "lucide-react";
+import { Accessibility, Brain, GraduationCap, CircleUser } from "lucide-react";
 
 export default function SettingsPage() {
   return (
     <div className="space-y-6">
       <div className="grid gap-4 lg:grid-cols-2">
-        <Link href="/settings/account">
+        <Link href="/settings/learning">
           <Card className="transition-all duration-300 hover:shadow-md">
             <CardHeader>
               <CardTitle>Account</CardTitle>
@@ -25,14 +25,16 @@ export default function SettingsPage() {
               </CardDescription>
             </CardHeader>
             <CardContent className="flex items-center justify-between">
-              <div className="text-sm text-muted-foreground">
-                Update your profile and email settings
+              <div className="flex items-center space-x-2">
+                <CircleUser className="h-5 w-5 text-muted-foreground" />
+                <span className="text-sm text-muted-foreground">
+                  Update your profile and email settings
+                </span>
               </div>
               <ChevronRight className="h-5 w-5 text-muted-foreground" />
             </CardContent>
           </Card>
         </Link>
-
         <Link href="/settings/learning">
           <Card className="transition-all duration-300 hover:shadow-md">
             <CardHeader>
@@ -88,25 +90,6 @@ export default function SettingsPage() {
             </CardContent>
           </Card>
         </Link>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Lecture Settings</CardTitle>
-            <CardDescription>
-              Customize your learning experience
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex items-center justify-between">
-              <Label htmlFor="daily-goal">Daily Goal Reminders</Label>
-              <Switch id="daily-goal" />
-            </div>
-            <div className="flex items-center justify-between">
-              <Label htmlFor="sound-effects">Sound Effects</Label>
-              <Switch id="sound-effects" defaultChecked />
-            </div>
-          </CardContent>
-        </Card>
       </div>
 
       <Card>
