@@ -1,7 +1,7 @@
 'use server'
 
 import { signIn } from 'next-auth/react'
-import { AuthError } from 'next-auth'
+import AuthError from 'next-auth'
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcryptjs'
 
@@ -26,7 +26,6 @@ export async function authenticate(
     }
 
     const passwordMatch = await bcrypt.compare(password, user.password)
-
     if (!passwordMatch) {
       return 'Invalid password.'
     }

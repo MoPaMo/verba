@@ -1,7 +1,7 @@
 'use client'
 
 import { useFormState, useFormStatus } from 'react-dom'
-import { authenticate } from '@/actions/auth'
+import { authenticate } from '@/app/actions/auth'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
