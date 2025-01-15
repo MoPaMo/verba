@@ -13,23 +13,19 @@ const publicRoutes = [
   "/legal",
 ];
 
-// Error routes that should always be accessible
-const errorRoutes = ["/error", "/not-found"];
-
 export async function middleware(request: NextRequest) {
   console.log("middleware.ts", request.nextUrl.pathname);
 
-  const token = await getToken({ req: request });
+  const token = false;
   const { pathname } = request.nextUrl;
 
   // Check if the path is public or an error route
   const isPublicRoute = publicRoutes.some((route) =>
     pathname.startsWith(route)
   );
-  const isErrorRoute = errorRoutes.some((route) => pathname.startsWith(route));
 
   // Allow access to public and error routes regardless of authentication
-  if (isPublicRoute || isErrorRoute) {
+  if (isPublicRoute) {
     return NextResponse.next();
   }
 
