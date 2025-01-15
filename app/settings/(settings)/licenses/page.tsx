@@ -1,4 +1,4 @@
-import LicensesViewer from "@/app/settings/licenses/licenses-viewer"
+import LicensesViewer from "./licenses-viewer"
 
 export const metadata = {
   title: "Open Source Licenses - Verba",
