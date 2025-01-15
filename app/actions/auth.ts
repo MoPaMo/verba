@@ -1,7 +1,6 @@
 'use server'
 
 import { signIn, signOut } from 'next-auth/react'
-import { AuthError } from 'next-auth'
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcryptjs'
 
@@ -32,16 +31,10 @@ export async function authenticate(
     }
 
     await signIn('credentials', { email, password, redirect: false })
+    return undefined // Successful authentication
   } catch (error) {
-    if (error instanceof AuthError) {
-      switch (error.type) {
-        case 'CredentialsSignin':
-          return 'Invalid credentials.'
-        default:
-          return 'Something went wrong.'
-      }
-    }
-    throw error
+    console.error('Authentication error:', error)
+    return 'An error occurred during authentication.'
   }
 }
 
