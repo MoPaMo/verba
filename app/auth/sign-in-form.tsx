@@ -14,13 +14,31 @@ export function SignInForm({ onForgotPassword }: SignInFormProps) {
   const [isLoading, setIsLoading] = useState(false)
 
   async function onSubmit(event: React.FormEvent) {
-    event.preventDefault()
-    setIsLoading(true)
-
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 3000)
+    event.preventDefault();
+    setIsLoading(true);
+  
+    const formData = new FormData(event.currentTarget as HTMLFormElement);
+    const email = formData.get("email");
+    const password = formData.get("password");
+  
+    const res = await fetch("/api/auth/signin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+  
+    setIsLoading(false);
+  
+    if (res.ok) {
+      const data = await res.json();
+      // Handle successful login (e.g., redirect or update session state)
+      console.log("Signed in successfully:", data);
+    } else {
+      // Handle error (e.g., show a message to the user)
+      console.error("Error signing in");
+    }
   }
+  
 
   return (
     <div className="space-y-6 animate-in">
