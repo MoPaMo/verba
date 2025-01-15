@@ -1,44 +1,46 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Icons } from '@/app/auth/icons'
+import { useState } from "react";
+import { useRouter } from "next/router"; // Import useRouter for redirection
+import { signIn } from "next-auth/react"; // Import signIn from NextAuth.js
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Icons } from "@/app/auth/icons";
 
 interface SignInFormProps {
-  onForgotPassword: () => void
+  onForgotPassword: () => void;
 }
 
 export function SignInForm({ onForgotPassword }: SignInFormProps) {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState(""); // State to manage email input
+  const [password, setPassword] = useState(""); // State to manage password input
+  const [error, setError] = useState(""); // State to manage authentication errors
+  const router = useRouter(); // Initialize router
 
   async function onSubmit(event: React.FormEvent) {
     event.preventDefault();
     setIsLoading(true);
-  
-    const formData = new FormData(event.currentTarget as HTMLFormElement);
-    const email = formData.get("email");
-    const password = formData.get("password");
-  
-    const res = await fetch("/api/auth/signin", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
+    setError(""); // Reset any existing errors
+
+    // Attempt to sign in the user using NextAuth.js
+    const result = await signIn("credentials", {
+      redirect: false, // Prevent automatic redirection
+      email,
+      password,
     });
-  
-    setIsLoading(false);
-  
-    if (res.ok) {
-      const data = await res.json();
-      // Handle successful login (e.g., redirect or update session state)
-      console.log("Signed in successfully:", data);
+
+    if (result?.error) {
+      // If there's an error during sign-in, display it to the user
+      setError(result.error);
     } else {
-      // Handle error (e.g., show a message to the user)
-      console.error("Error signing in");
+      // On successful sign-in, redirect the user to the homepage or desired page
+      router.push("/");
     }
+
+    setIsLoading(false);
   }
-  
 
   return (
     <div className="space-y-6 animate-in">
@@ -54,6 +56,8 @@ export function SignInForm({ onForgotPassword }: SignInFormProps) {
             autoCorrect="off"
             disabled={isLoading}
             required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)} // Update email state on input change
           />
         </div>
         <div className="space-y-2">
@@ -63,16 +67,20 @@ export function SignInForm({ onForgotPassword }: SignInFormProps) {
             type="password"
             disabled={isLoading}
             required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)} // Update password state on input change
           />
         </div>
-        <Button 
-          type="submit" 
+
+        {/* Display error message if authentication fails */}
+        {error && <p className="text-red-500 text-sm">{error}</p>}
+
+        <Button
+          type="submit"
           className="w-full bg-[#7C956C] hover:bg-[#6A8159] dark:bg-[#B3C4A5] dark:hover:bg-[#9FB38F] dark:text-[#2A2A3C] h-12 rounded-xl transition-all duration-300"
           disabled={isLoading}
         >
-          {isLoading && (
-            <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-          )}
+          {isLoading && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />}
           Sign In
         </Button>
       </form>
@@ -86,6 +94,5 @@ export function SignInForm({ onForgotPassword }: SignInFormProps) {
         Forgot your password?
       </Button>
     </div>
-  )
+  );
 }
-
