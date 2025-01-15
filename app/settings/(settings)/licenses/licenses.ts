@@ -46,3 +46,4 @@ const licenses: License[] = [
 ];
 
 export default licenses;
+export type { License };

@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/dialog"
 import { ScrollArea } from "@/components/ui/scroll-area"
 
-import licenses  from "./licenses"
+import licenses, {License}  from "./licenses"
 
 export default function LicensesViewer() {
   const [selectedLicense, setSelectedLicense] = React.useState<License | null>(null)
