@@ -17,6 +17,8 @@ const publicRoutes = [
 const errorRoutes = ["/error", "/not-found"];
 
 export async function middleware(request: NextRequest) {
+  console.log("middleware.ts", request.nextUrl.pathname);
+
   const token = await getToken({ req: request });
   const { pathname } = request.nextUrl;
 
