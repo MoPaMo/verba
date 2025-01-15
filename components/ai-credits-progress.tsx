@@ -45,7 +45,7 @@ export function AICreditsProgress({
         </div>
         <Progress
           value={percentage}
-          className="h-2 transition-all duration-300"
+          className="h-2 transition-all duration-300 bg-primary-foreground"
         />
         <p className="text-xs text-muted-foreground">
           {remaining.toLocaleString()} credits remaining
