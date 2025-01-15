@@ -1,6 +1,5 @@
 'use server'
 
-import { signIn, signOut } from 'next-auth/react'
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcryptjs'
 
@@ -30,8 +29,7 @@ export async function authenticate(
       return 'Invalid password.'
     }
 
-    await signIn('credentials', { email, password, redirect: false })
-    return undefined // Successful authentication
+    return undefined 
   } catch (error) {
     console.error('Authentication error:', error)
     return 'An error occurred during authentication.'
@@ -39,6 +37,4 @@ export async function authenticate(
 }
 
 export async function handleSignOut() {
-  await signOut({ callbackUrl: '/' })
 }
-

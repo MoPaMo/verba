@@ -1,16 +1,42 @@
 'use client'
 
-import { useFormState, useFormStatus } from 'react-dom'
-import { authenticate } from '@/app/actions/auth'
+import { useState } from 'react'
+import { signIn } from 'next-auth/react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
 export function SignInForm() {
-  const [errorMessage, dispatch] = useFormState(authenticate, undefined)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const [loading, setLoading] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setLoading(true)
+    setErrorMessage(null)
+
+    const formData = new FormData(e.currentTarget)
+    const email = formData.get('email') as string
+    const password = formData.get('password') as string
+
+    const response = await signIn('credentials', {
+      redirect: false,
+      email,
+      password,
+    })
+
+    setLoading(false)
+
+    if (response?.error) {
+      setErrorMessage(response.error)
+    } else {
+        // Redirect to the dashboard
+        
+    }
+  }
 
   return (
-    <form action={dispatch} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
         <Input
@@ -31,21 +57,12 @@ export function SignInForm() {
           placeholder="Enter your password"
         />
       </div>
-      <SignInButton />
+      <Button className="w-full" type="submit" disabled={loading}>
+        {loading ? 'Signing In...' : 'Sign In'}
+      </Button>
       {errorMessage && (
         <p className="text-sm text-red-500">{errorMessage}</p>
       )}
     </form>
   )
 }
-
-function SignInButton() {
-  const { pending } = useFormStatus()
-
-  return (
-    <Button className="w-full" type="submit" disabled={pending}>
-      {pending ? 'Signing In...' : 'Sign In'}
-    </Button>
-  )
-}
-
