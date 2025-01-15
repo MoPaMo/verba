@@ -92,7 +92,6 @@ export default function SettingsPage() {
         </Link>
       </div>
 
-
       <Card>
         <CardHeader>
           <CardTitle>Legal</CardTitle>
