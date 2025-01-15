@@ -92,24 +92,6 @@ export default function SettingsPage() {
         </Link>
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Appearance</CardTitle>
-          <CardDescription>
-            Customize how Verba looks on your device
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Sun className="h-5 w-5" />
-              <Label htmlFor="theme-toggle">Dark Mode</Label>
-              <Moon className="h-5 w-5" />
-            </div>
-            <Switch id="theme-toggle" />
-          </div>
-        </CardContent>
-      </Card>
 
       <Card>
         <CardHeader>
