@@ -14,7 +14,6 @@ import { BackButton } from "@/components/back-button"
 export default function AccessibilitySettingsPage() {
   return (
     <div className="space-y-6">
-      <BackButton />
       <div>
         <h3 className="text-lg font-medium">Accessibility</h3>
         <p className="text-sm text-muted-foreground">

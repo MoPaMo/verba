@@ -22,7 +22,6 @@ import { BackButton } from "@/components/back-button";
 export default function AccountSettingsPage() {
   return (
     <div className="space-y-6">
-      <BackButton />
       <div>
         <h3 className="text-lg font-medium">Account</h3>
         <p className="text-sm text-muted-foreground">
