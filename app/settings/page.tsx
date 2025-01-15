@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import { Separator } from "@/components/ui/separator";
+import { AICreditsProgress } from "@/components/ai-credits-progress";
 import Link from "next/link";
 import { ChevronRight, LogOut, Moon, Sun } from "lucide-react";
 import { Accessibility, Brain, GraduationCap, CircleUser } from "lucide-react";
@@ -15,6 +17,16 @@ import { Accessibility, Brain, GraduationCap, CircleUser } from "lucide-react";
 export default function SettingsPage() {
   return (
     <div className="space-y-6">
+      <div className="space-y-0.5">
+        <h1 className="text-3xl font-bold tracking-tight">Settings</h1>
+        <p className="text-muted-foreground">
+          Manage your account settings and preferences.
+        </p>
+      </div>
+      <AICreditsProgress used={750} total={1000} daysLeft={7} />
+
+      <Separator className="my-6" />
+
       <div className="grid gap-4 lg:grid-cols-2">
         <Link href="/settings/learning">
           <Card className="transition-all duration-300 hover:shadow-md">
