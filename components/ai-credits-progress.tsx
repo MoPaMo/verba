@@ -1,23 +1,27 @@
-import { Card } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
-import { InfoIcon as InfoCircle } from 'lucide-react'
+import { Card } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { InfoIcon as InfoCircle } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
+} from "@/components/ui/tooltip";
 
 interface AICreditsProgressProps {
-  used: number
-  total: number
-  daysLeft: number
+  used: number;
+  total: number;
+  daysLeft: number;
 }
 
-export function AICreditsProgress({ used, total, daysLeft }: AICreditsProgressProps) {
-  const percentage = Math.min((used / total) * 100, 100)
-  const remaining = total - used
-  
+export function AICreditsProgress({
+  used,
+  total,
+  daysLeft,
+}: AICreditsProgressProps) {
+  const percentage = Math.min((used / total) * 100, 100);
+  const remaining = total - used;
+
   return (
     <Card className="p-4 mb-6">
       <div className="space-y-3">
@@ -39,8 +43,8 @@ export function AICreditsProgress({ used, total, daysLeft }: AICreditsProgressPr
             {used.toLocaleString()} / {total.toLocaleString()}
           </span>
         </div>
-        <Progress 
-          value={percentage} 
+        <Progress
+          value={percentage}
           className="h-2 transition-all duration-300"
         />
         <p className="text-xs text-muted-foreground">
@@ -48,6 +52,5 @@ export function AICreditsProgress({ used, total, daysLeft }: AICreditsProgressPr
         </p>
       </div>
     </Card>
-  )
+  );
 }
-

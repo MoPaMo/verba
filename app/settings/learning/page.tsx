@@ -4,19 +4,19 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Slider } from "@/components/ui/slider"
-import { Switch } from "@/components/ui/switch"
-import { Separator } from "@/components/ui/separator"
-import { BackButton } from "@/components/back-button"
+} from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
+import { Switch } from "@/components/ui/switch";
+import { Separator } from "@/components/ui/separator";
+import { BackButton } from "@/components/back-button";
 
 export default function LearningSettingsPage() {
   return (
@@ -74,9 +74,7 @@ export default function LearningSettingsPage() {
       <Card>
         <CardHeader>
           <CardTitle>Daily Goals</CardTitle>
-          <CardDescription>
-            Set your daily learning targets
-          </CardDescription>
+          <CardDescription>Set your daily learning targets</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-4">
@@ -95,6 +93,5 @@ export default function LearningSettingsPage() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
-

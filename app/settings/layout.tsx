@@ -1,8 +1,8 @@
-import { Separator } from "@/components/ui/separator"
-import { AICreditsProgress } from "@/components/ai-credits-progress"
+import { Separator } from "@/components/ui/separator";
+import { AICreditsProgress } from "@/components/ai-credits-progress";
 
 interface SettingsLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export default function SettingsLayout({ children }: SettingsLayoutProps) {
@@ -14,14 +14,9 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
           Manage your account settings and preferences.
         </p>
       </div>
-      <AICreditsProgress 
-        used={750}
-        total={1000}
-        daysLeft={7}
-      />
+      <AICreditsProgress used={750} total={1000} daysLeft={7} />
       <Separator className="my-6" />
       {children}
     </div>
-  )
+  );
 }
-

@@ -1,23 +1,23 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Separator } from "@/components/ui/separator"
-import { Switch } from "@/components/ui/switch"
-import { BackButton } from "@/components/back-button"
+} from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
+import { Switch } from "@/components/ui/switch";
+import { BackButton } from "@/components/back-button";
 
 export default function AccountSettingsPage() {
   return (
@@ -33,9 +33,7 @@ export default function AccountSettingsPage() {
       <Card>
         <CardHeader>
           <CardTitle>Profile</CardTitle>
-          <CardDescription>
-            Update your personal information.
-          </CardDescription>
+          <CardDescription>Update your personal information.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid gap-3">
@@ -98,6 +96,5 @@ export default function AccountSettingsPage() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
-
