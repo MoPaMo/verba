@@ -124,7 +124,7 @@ export default function SettingsPage() {
               <ChevronRight className="h-5 w-5 text-muted-foreground" />
             </Link>
             <Link
-              href="/legal/licenses"
+              href="/settings/licenses"
               className="flex items-center justify-between rounded-lg border p-4 transition-all duration-300 hover:bg-accent"
             >
               <div className="space-y-0.5">
