@@ -1,11 +1,11 @@
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import Link from "next/link"
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import Link from "next/link";
 
 interface ErrorPageProps {
-  title: string
-  message: string
-  emoji: string
+  title: string;
+  message: string;
+  emoji: string;
 }
 
 export function ErrorPage({ title, message, emoji }: ErrorPageProps) {
@@ -20,6 +20,5 @@ export function ErrorPage({ title, message, emoji }: ErrorPageProps) {
         </Button>
       </Card>
     </div>
-  )
+  );
 }
-
