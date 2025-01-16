@@ -8,7 +8,10 @@ import languages from "@/data/languages";
 export async function setLang(lang: string) {
   const session = await getSession();
   if (!session) {
-    return { error: "You must be signed in to pick a new language." };
+    return {
+      error: "You must be signed in to pick a new language.",
+      errType: "auth",
+    };
   }
 
   // check if lang is valid
@@ -17,7 +20,7 @@ export async function setLang(lang: string) {
       return e.code === lang;
     }).length
   ) {
-    return { error: "Invalid language." };
+    return { error: "Invalid language.", errType: "invLang" };
   }
   try {
     const langRel = await prisma.userLanguage.create({
@@ -30,6 +33,9 @@ export async function setLang(lang: string) {
     return { success: true, langRel };
   } catch (error) {
     console.error("Set lang error:", error);
-    return { error: "An error occurred during setting language." };
+    return {
+      error: "An error occurred during setting language.",
+      errType: "setLang",
+    };
   }
 }
