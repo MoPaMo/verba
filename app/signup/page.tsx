@@ -1,6 +1,7 @@
 import { SignUpForm } from "./SignUpForm";
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
+import { GalleryVerticalEnd } from "lucide-react";
 
 export default async function SignUpPage() {
   const session = await getServerSession();
@@ -10,16 +11,14 @@ export default async function SignUpPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#FAF8F6] dark:bg-[#2A2A3C]">
-      <div className="w-full max-w-md space-y-8 rounded-lg bg-[#F5F2EF] p-6 shadow-md dark:bg-[#363646]">
-        <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-[#7C956C] dark:text-[#B3C4A5]">
-            Create Account
-          </h2>
-          <p className="mt-2 text-sm text-[#8C8C8C] dark:text-[#A09F9F]">
-            Enter your details to create a new account
-          </p>
-        </div>
+    <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-muted p-6 md:p-10">
+      <div className="flex w-full max-w-sm flex-col gap-6">
+        <a href="#" className="flex items-center gap-2 self-center font-medium">
+          <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
+            <GalleryVerticalEnd className="size-4" />
+          </div>
+          Acme Inc.
+        </a>
         <SignUpForm />
       </div>
     </div>
