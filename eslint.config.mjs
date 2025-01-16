@@ -1,25 +1,26 @@
-import { FlatCompat } from "@eslint/eslintrc"
+import nextPlugin from "@next/eslint-plugin-next";
+import { FlatCompat } from "@eslint/eslintrc";
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
-})
+  recommendedConfig: {},
+});
 
 export default [
   {
-    ignores: ["**/node_modules/**", ".next/**", "dist/**"]
+    plugins: {
+      "@next/next": nextPlugin,
+    },
   },
   ...compat.config({
     extends: ["next/core-web-vitals"],
   }),
   {
-    files: ["**/*.ts", "**/*.tsx"],
+    files: ["**/*.{js,jsx,ts,tsx}"],
     rules: {
+      "@next/next/no-html-link-for-pages": "off",
       "react/no-unescaped-entities": "off",
-      "@next/next/no-page-custom-font": "off"
+      "@next/next/no-page-custom-font": "off",
     },
-    linterOptions: {
-      reportUnusedDisableDirectives: "error",
-    }
-  }
-]
-
+  },
+];
