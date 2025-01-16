@@ -174,7 +174,8 @@ export function LoginForm({
         <DialogHeader>
           <DialogTitle>Womp Womp</DialogTitle>
           <DialogDescription>
-            There is no way to recover your password. You will have to create a new account.
+            There is no way to recover your password. You will have to create a
+            new account.
           </DialogDescription>
         </DialogHeader>
       </DialogContent>
