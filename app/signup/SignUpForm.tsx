@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Icons } from '../signin/icons'
-import { createAccount } from '@/actions/signup'
+import { createAccount } from '@/app/actions/signup'
 import Link from 'next/link'
 
 export function SignUpForm() {
