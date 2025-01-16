@@ -5,11 +5,25 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 import languages from "@/data/languages";
-
+import { setLang } from "@/app/actions/set-lang";
+import {
+  Dialog,
+  DialogClose,
+  DialogTitle,
+  DialogPortal,
+} from "@/components/ui/dialog";
 export default function LanguagePicker() {
   const sortedLanguages = [...languages].sort(
-    (a, b) => Number(a.disabled) - Number(b.disabled),
+    (a, b) => Number(a.disabled) - Number(b.disabled)
   );
+  const handleLangSelect = async (lang: string) => {
+    const result = await setLang(lang);
+    if (result.error) {
+      alert(result.error);
+    } else {
+      window.location.href = "/home";
+    }
+  };
 
   return (
     <div className="flex flex-col items-center justify-center ">
@@ -26,6 +40,7 @@ export default function LanguagePicker() {
               className="transition-transform duration-200"
             >
               <Button
+                onClick={() => handleLangSelect(language.code)}
                 variant="outline"
                 disabled={language.disabled}
                 title={language.disabled ? "Coming soon" : undefined}
