@@ -2,16 +2,12 @@
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
 
-export default async function SettingsLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function SettingsLayout() {
   const session = await getServerSession();
 
   if (!session) {
     return redirect("/signin");
   }
 
-  return <div className="settings-layout">{children}</div>;
+  return <div className="settings-layout">you shall pass</div>;
 }
