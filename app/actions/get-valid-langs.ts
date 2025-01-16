@@ -31,8 +31,7 @@ export async function getLangs() {
     const langs = languages.map((lang) => ({
       ...lang,
       disabled:
-        lang.disabled ||
-        userLanguages.some((e) => e.language === lang.code),
+        lang.disabled || userLanguages.some((e) => e.language === lang.code),
     }));
 
     return { success: true, langs };

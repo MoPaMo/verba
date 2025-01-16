@@ -16,7 +16,7 @@ export default function LegalLayout({
           Verba
         </a>
         <Separator />
-     
+
         {children}
       </div>
     </div>

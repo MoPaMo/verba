@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 import { StatsBar } from "@/components/stats-bar";
 import { LearningPath } from "@/components/learning-path";
