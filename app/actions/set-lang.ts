@@ -1,12 +1,14 @@
 "use server";
 
 import { PrismaClient } from "@prisma/client";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/lib/auth";
 const prisma = new PrismaClient();
 
 import languages from "@/data/languages";
 export async function setLang(lang: string) {
-  const session = await getSession();
+  const session = await getServerSession(authOptions);
+
   if (!session) {
     return {
       error: "You must be signed in to pick a new language.",
