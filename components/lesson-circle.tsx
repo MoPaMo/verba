@@ -33,8 +33,8 @@ export function LessonCircle({
           lesson.completed
             ? "border-[#7c956c] dark:border-[#b3c4a5] bg-[#7c956c] dark:bg-[#b3c4a5]"
             : lesson.locked
-            ? "border-[#8c8c8c] dark:border-[#a09f9f] bg-[#f5f2ef] dark:bg-[#363646] opacity-50"
-            : "border-[#7c956c] dark:border-[#b3c4a5] bg-[#f5f2ef] dark:bg-[#363646]"
+              ? "border-[#8c8c8c] dark:border-[#a09f9f] bg-[#f5f2ef] dark:bg-[#363646] opacity-50"
+              : "border-[#7c956c] dark:border-[#b3c4a5] bg-[#f5f2ef] dark:bg-[#363646]"
         }
       `}
     >

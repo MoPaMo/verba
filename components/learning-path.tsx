@@ -58,7 +58,6 @@ export function LearningPath({ units, onSelectLesson }: LearningPathProps) {
                     }
                   `}
                 >
-                  
                   <div
                     className={`relative ${
                       index % 2 === 0 ? "md:mr-8" : "md:ml-8"

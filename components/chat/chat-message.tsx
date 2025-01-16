@@ -24,7 +24,7 @@ export function ChatMessage({ message, onRate }: ChatMessageProps) {
             <div className="space-x-1">
               {message.content.split(" ").map((word, index) => {
                 const definition = message.words?.find(
-                  (w) => w.word.toLowerCase() === word.toLowerCase()
+                  (w) => w.word.toLowerCase() === word.toLowerCase(),
                 );
                 return definition ? (
                   <TranslatableWord

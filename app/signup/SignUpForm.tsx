@@ -46,7 +46,7 @@ export function SignUpForm({
 
     if (signInResult?.error) {
       setErrorMessage(
-        "Account created but could not sign in automatically. Please sign in manually."
+        "Account created but could not sign in automatically. Please sign in manually.",
       );
     }
 
@@ -69,7 +69,7 @@ export function SignUpForm({
         <CardContent>
           <form onSubmit={handleSubmit}>
             <div className="grid gap-6">
-            {/*  <div className="flex flex-col gap-4">
+              {/*  <div className="flex flex-col gap-4">
                 <Button
                   type="button"
                   variant="outline"

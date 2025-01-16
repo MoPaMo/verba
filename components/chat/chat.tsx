@@ -69,8 +69,8 @@ export function LanguageChat() {
   const handleRate = (messageId: string, rating: number) => {
     setMessages((prev) =>
       prev.map((message) =>
-        message.id === messageId ? { ...message, rating } : message
-      )
+        message.id === messageId ? { ...message, rating } : message,
+      ),
     );
   };
 
