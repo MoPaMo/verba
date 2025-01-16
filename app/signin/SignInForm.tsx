@@ -6,10 +6,13 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Icons } from './icons'
+import { useSearchParams, useRouter } from 'next/navigation'
 
 export function SignInForm() {
   const [loading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const searchParams = useSearchParams()
+  const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -19,6 +22,9 @@ export function SignInForm() {
     const formData = new FormData(e.currentTarget)
     const email = formData.get('email') as string
     const password = formData.get('password') as string
+
+    // Get the callback URL from the search parameters, default to /home
+    const callbackUrl = searchParams.get('callbackUrl') || '/home'
 
     const response = await signIn('credentials', {
       redirect: false,
@@ -30,9 +36,10 @@ export function SignInForm() {
 
     if (response?.error) {
       setErrorMessage(response.error)
-    }
-    else{
-        
+    } else {
+      // Successful sign-in, redirect to the callback URL
+      router.push(callbackUrl)
+      router.refresh()
     }
   }
 
