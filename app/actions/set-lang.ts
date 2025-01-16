@@ -4,7 +4,6 @@ import { PrismaClient } from "@prisma/client";
 import { getSession } from "next-auth/react";
 const prisma = new PrismaClient();
 
-
 import languages from "@/data/languages";
 export async function setLang(lang: string) {
   const session = await getSession();
@@ -13,9 +12,24 @@ export async function setLang(lang: string) {
   }
 
   // check if lang is valid
-    if (!languages.includes(lang)) {
-        return { error: "Invalid language." };
-    }
-    
+  if (
+    !languages.filter((e) => {
+      return e.code === lang;
+    }).length
+  ) {
+    return { error: "Invalid language." };
+  }
+  try {
+    const langRel = await prisma.userLanguage.create({
+      data: {
+        userId: session.user.id,
+        language: lang,
+      },
+    });
 
+    return { success: true, langRel };
+  } catch (error) {
+    console.error("Set lang error:", error);
+    return { error: "An error occurred during setting language." };
+  }
 }
