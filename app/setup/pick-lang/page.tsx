@@ -18,7 +18,15 @@ import {
 import { useState, useEffect } from "react";
 
 export default function LanguagePicker() {
-  const [langs, setLangs] = useState([]);
+  interface Language {
+    disabled: boolean;
+    name: string;
+    nativeName: string;
+    flag: string;
+    code: string;
+  }
+  
+  const [langs, setLangs] = useState<Language[]>([]);
 
   useEffect(() => {
     getLangs().then((fittedLangs) => {
