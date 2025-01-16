@@ -7,7 +7,7 @@ export default async function SignUpPage() {
   const session = await getServerSession();
 
   if (session) {
-    redirect("/home");
+    redirect("/setup/pick-lang");
   }
 
   return (
