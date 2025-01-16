@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
-import languages from "@/data/languages";
 import { setLang } from "@/app/actions/set-lang";
+import { getLangs } from "@/app/actions/get-valid-langs";
 import Link from "next/link";
 import {
   Dialog,
@@ -15,11 +15,20 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 export default function LanguagePicker() {
-  const sortedLanguages = [...languages].sort(
-    (a, b) => Number(a.disabled) - Number(b.disabled)
-  );
+  const [langs, setLangs] = useState([]);
+
+  useEffect(() => {
+    getLangs().then((fittedLangs) => {
+      if (!fittedLangs.error && fittedLangs.langs) {
+        setLangs(fittedLangs.langs);
+        console.log("Fitted langs:", fittedLangs.langs);
+      }
+    });
+  }, []);
+
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
   const [isAuthError, setIsAuthError] = useState(false);
@@ -43,18 +52,20 @@ export default function LanguagePicker() {
             I want to learn...
           </h1>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {sortedLanguages.map((language) => (
+            {langs.map((language) => (
               <motion.div
                 key={language.code}
                 whileHover={{ scale: language.disabled ? 0.99 : 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileTap={{ scale: language.disabled ? 0.99 : 0.98 }}
                 className="transition-transform duration-200"
               >
                 <Button
                   onClick={() => handleLangSelect(language.code)}
                   variant="outline"
                   disabled={language.disabled}
-                  title={language.disabled ? "Coming soon" : undefined}
+                  title={
+                    language.disabled ? "Already selected" : "Select Language"
+                  }
                   className={`w-full h-auto p-6 bg-white/80 dark:bg-[#2a2a3c]/80 ${
                     language.disabled
                       ? "opacity-50 cursor-not-allowed"
@@ -90,14 +101,14 @@ export default function LanguagePicker() {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
-            An Error occured while setting your language
+            An Error occurred while setting your language
           </DialogTitle>
           <DialogDescription>{errorMsg}</DialogDescription>
         </DialogHeader>
         {isAuthError ? (
-            <Button asChild variant="default">
-              <Link href="/signin">Sign In</Link>
-            </Button>
+          <Button asChild variant="default">
+            <Link href="/signin">Sign In</Link>
+          </Button>
         ) : (
           <div className="grid grid-flow-col gap-4">
             <Button asChild variant="secondary">
