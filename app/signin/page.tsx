@@ -1,8 +1,7 @@
-import { SignInForm } from "./SignInForm";
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
 
-import { GalleryVerticalEnd, Languages } from "lucide-react";
+import { Languages } from "lucide-react";
 
 import { LoginForm } from "@/app/signin/login-form";
 
