@@ -63,13 +63,13 @@ export function SignUpForm({
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Create Account</CardTitle>
           <CardDescription>
-            Sign up with your Apple or Google account
+            Sign up {/*with your Apple or Google account*/} with your email
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit}>
             <div className="grid gap-6">
-              <div className="flex flex-col gap-4">
+            {/*  <div className="flex flex-col gap-4">
                 <Button
                   type="button"
                   variant="outline"
@@ -103,7 +103,7 @@ export function SignUpForm({
                 <span className="relative z-10 bg-background px-2 text-muted-foreground">
                   Or continue with email
                 </span>
-              </div>
+              </div>*/}
               <div className="grid gap-6">
                 <div className="grid gap-2">
                   <Label htmlFor="name">Name</Label>
