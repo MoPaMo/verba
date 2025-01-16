@@ -10,6 +10,7 @@ export const config = {
   matcher: [
     "/private/:path*",
     "/settings/:path*",
-    "/home/:path*"
+    "/home/:path*",
+    "/setup/:path*"
   ]
 }
