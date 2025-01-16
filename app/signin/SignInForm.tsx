@@ -1,51 +1,51 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { signIn } from 'next-auth/react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Icons } from './icons'
-import { useSearchParams, useRouter } from 'next/navigation'
+import { useState } from "react";
+import { signIn } from "next-auth/react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Icons } from "./icons";
+import { useSearchParams, useRouter } from "next/navigation";
 
 export function SignInForm() {
-  const [loading, setLoading] = useState(false)
-  const [errorMessage, setErrorMessage] = useState<string | null>(null)
-  const searchParams = useSearchParams()
-  const router = useRouter()
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setLoading(true)
-    setErrorMessage(null)
+    e.preventDefault();
+    setLoading(true);
+    setErrorMessage(null);
 
-    const formData = new FormData(e.currentTarget)
-    const email = formData.get('email') as string
-    const password = formData.get('password') as string
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
 
     // Get the callback URL from the search parameters, default to /home
-    const callbackUrl = searchParams.get('callbackUrl') || '/home'
+    const callbackUrl = searchParams.get("callbackUrl") || "/home";
 
-    const response = await signIn('credentials', {
+    const response = await signIn("credentials", {
       redirect: false,
       email,
       password,
-    })
+    });
 
-    setLoading(false)
+    setLoading(false);
 
     if (response?.error) {
-      setErrorMessage(response.error)
+      setErrorMessage(response.error);
     } else {
       // Successful sign-in, redirect to the callback URL
-      router.push(callbackUrl)
-      router.refresh()
+      router.push(callbackUrl);
+      router.refresh();
     }
-  }
+  };
 
   const handleForgotPassword = () => {
     // TODO: Implement forgot password functionality
-  }
+  };
 
   return (
     <div className="space-y-6 animate-in">
@@ -74,14 +74,12 @@ export function SignInForm() {
             required
           />
         </div>
-        <Button 
-          type="submit" 
+        <Button
+          type="submit"
           className="w-full bg-[#7C956C] hover:bg-[#6A8159] dark:bg-[#B3C4A5] dark:hover:bg-[#9FB38F] dark:text-[#2A2A3C] h-12 rounded-xl transition-all duration-300"
           disabled={loading}
         >
-          {loading && (
-            <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-          )}
+          {loading && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />}
           Sign In
         </Button>
       </form>
@@ -95,9 +93,7 @@ export function SignInForm() {
         Forgot your password?
       </Button>
 
-      {errorMessage && (
-        <p className="text-sm text-red-500">{errorMessage}</p>
-      )}
+      {errorMessage && <p className="text-sm text-red-500">{errorMessage}</p>}
     </div>
-  )
+  );
 }
