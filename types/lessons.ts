@@ -22,10 +22,10 @@ export interface UserStats {
 }
 
 export interface Unit {
-    id: string;
-    title: string;
-    description: string;
-    completed: boolean;
-    locked: boolean;
-    lessons: Lesson[];
-  }
+  id: string;
+  title: string;
+  description: string;
+  completed: boolean;
+  locked: boolean;
+  lessons: Lesson[];
+}
