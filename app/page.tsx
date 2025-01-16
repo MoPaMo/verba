@@ -130,13 +130,15 @@ export default function LandingPage() {
             Join thousands of learners already experiencing the future of
             language learning.
           </p>
-          <Button
-            size="lg"
-            className="bg-[#7c956c] hover:bg-[#6a8159] dark:bg-[#b3c4a5] dark:hover:bg-[#9fb38f] text-white dark:text-[#2a2a3c] transition-all duration-300"
-          >
-            Try Verba Free
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <Link href="/signup">
+            <Button
+              size="lg"
+              className="bg-[#7c956c] hover:bg-[#6a8159] dark:bg-[#b3c4a5] dark:hover:bg-[#9fb38f] text-white dark:text-[#2a2a3c] transition-all duration-300"
+            >
+              Try Verba Free
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </section>
     </>
