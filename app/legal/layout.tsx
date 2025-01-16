@@ -1,13 +1,5 @@
 import { Languages } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-  } from "@/components/ui/breadcrumb"
 
 export default function LegalLayout({
   children,
