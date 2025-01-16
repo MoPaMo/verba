@@ -16,16 +16,8 @@ import {
 } from "@/components/ui/dialog";
 
 import { useState, useEffect } from "react";
-
+import { Language } from "@/types/languages";
 export default function LanguagePicker() {
-  interface Language {
-    disabled: boolean;
-    name: string;
-    nativeName: string;
-    flag: string;
-    code: string;
-  }
-  
   const [langs, setLangs] = useState<Language[]>([]);
 
   useEffect(() => {
