@@ -1,35 +1,38 @@
-import NextAuth, { NextAuthOptions } from 'next-auth'
-import CredentialsProvider from 'next-auth/providers/credentials'
-import { PrismaClient } from '@prisma/client'
-import bcrypt from 'bcryptjs'
+import NextAuth, { NextAuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcryptjs";
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
-      name: 'Credentials',
+      name: "Credentials",
       credentials: {
         email: { label: "Email", type: "text" },
-        password: { label: "Password", type: "password" }
+        password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
-          return null
+          return null;
         }
 
         const user = await prisma.user.findUnique({
-          where: { email: credentials.email }
-        })
+          where: { email: credentials.email },
+        });
 
         if (!user) {
-          return null
+          return null;
         }
 
-        const passwordMatch = await bcrypt.compare(credentials.password, user.password)
+        const passwordMatch = await bcrypt.compare(
+          credentials.password,
+          user.password,
+        );
 
         if (!passwordMatch) {
-          return null
+          return null;
         }
 
         return {
@@ -37,39 +40,39 @@ const authOptions: NextAuthOptions = {
           email: user.email,
           name: user.name,
           profileEmoji: user.profileEmoji,
-        }
-      }
-    })
+        };
+      },
+    }),
   ],
   pages: {
-    signIn: '/signin',
+    signIn: "/signin",
   },
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id
-        token.profileEmoji = user.profileEmoji
+        token.id = user.id;
+        token.profileEmoji = user.profileEmoji;
       }
-      return token
+      return token;
     },
     async session({ session, token }) {
       if (session.user) {
-        session.user.id = token.id
-        session.user.profileEmoji = token.profileEmoji
+        session.user.id = token.id;
+        session.user.profileEmoji = token.profileEmoji;
       }
-      return session
+      return session;
     },
     async redirect({ url, baseUrl }) {
-      if (url.startsWith("/")) return `${baseUrl}${url}`
-      else if (new URL(url).origin === baseUrl) return url
-      return baseUrl
+      if (url.startsWith("/")) return `${baseUrl}${url}`;
+      else if (new URL(url).origin === baseUrl) return url;
+      return baseUrl;
     },
   },
   session: {
-    strategy: 'jwt',
+    strategy: "jwt",
   },
-}
+};
 
-const handler = NextAuth(authOptions)
+const handler = NextAuth(authOptions);
 
-export { handler as GET, handler as POST }
+export { handler as GET, handler as POST };

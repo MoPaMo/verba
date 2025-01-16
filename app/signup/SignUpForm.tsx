@@ -36,7 +36,7 @@ export function SignUpForm() {
 
     if (signInResult?.error) {
       setErrorMessage(
-        "Account created but could not sign in automatically. Please sign in manually."
+        "Account created but could not sign in automatically. Please sign in manually.",
       );
     }
 

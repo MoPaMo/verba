@@ -4,12 +4,12 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
-import { Separator } from "@/components/ui/separator"
-import { Switch } from "@/components/ui/switch"
-import { Slider } from "@/components/ui/slider"
-import { BackButton } from "@/components/back-button"
+} from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
+import { Switch } from "@/components/ui/switch";
+import { Slider } from "@/components/ui/slider";
+import { BackButton } from "@/components/back-button";
 
 export default function AccessibilitySettingsPage() {
   return (
@@ -59,9 +59,7 @@ export default function AccessibilitySettingsPage() {
       <Card>
         <CardHeader>
           <CardTitle>Audio & Speech</CardTitle>
-          <CardDescription>
-            Configure sound and speech settings
-          </CardDescription>
+          <CardDescription>Configure sound and speech settings</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex items-center justify-between">
@@ -85,6 +83,5 @@ export default function AccessibilitySettingsPage() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
-

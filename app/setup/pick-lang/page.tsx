@@ -100,7 +100,7 @@ const languages = [
 
 export default function LanguagePicker() {
   const sortedLanguages = [...languages].sort(
-    (a, b) => Number(a.disabled) - Number(b.disabled)
+    (a, b) => Number(a.disabled) - Number(b.disabled),
   );
 
   return (

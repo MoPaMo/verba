@@ -1,12 +1,12 @@
-import { SignUpForm } from "./SignUpForm"
-import { getServerSession } from "next-auth/next"
-import { redirect } from "next/navigation"
+import { SignUpForm } from "./SignUpForm";
+import { getServerSession } from "next-auth/next";
+import { redirect } from "next/navigation";
 
 export default async function SignUpPage() {
-  const session = await getServerSession()
+  const session = await getServerSession();
 
   if (session) {
-    redirect("/home")
+    redirect("/home");
   }
 
   return (
@@ -23,6 +23,5 @@ export default async function SignUpPage() {
         <SignUpForm />
       </div>
     </div>
-  )
+  );
 }
-

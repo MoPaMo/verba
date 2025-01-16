@@ -25,7 +25,7 @@ import licenses, { License } from "./licenses";
 
 export default function LicensesViewer() {
   const [selectedLicense, setSelectedLicense] = React.useState<License | null>(
-    null
+    null,
   );
 
   return (

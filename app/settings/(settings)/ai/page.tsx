@@ -4,19 +4,19 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+} from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Separator } from "@/components/ui/separator"
-import { Slider } from "@/components/ui/slider"
-import { BackButton } from "@/components/back-button"
+} from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
+import { Slider } from "@/components/ui/slider";
+import { BackButton } from "@/components/back-button";
 
 export default function AISettingsPage() {
   return (
@@ -83,9 +83,7 @@ export default function AISettingsPage() {
       <Card>
         <CardHeader>
           <CardTitle>Voice Settings</CardTitle>
-          <CardDescription>
-            Configure the AI's speaking voice
-          </CardDescription>
+          <CardDescription>Configure the AI's speaking voice</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid gap-1.5">
@@ -105,6 +103,5 @@ export default function AISettingsPage() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
-
