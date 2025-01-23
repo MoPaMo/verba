@@ -43,8 +43,8 @@
       "fullName": "Ana Silva",
       "age": "28",
       "profession": "Barista",
-      "city": "Salvador",
-      "background": "Ana works as a barista at a bustling café in Salvador, where she chats with locals and tourists alike. Her job has made her skilled at small talk, explaining Brazilian coffee culture, and helping visitors practice their Portuguese. Ana enjoys samba dancing on weekends and loves sharing her favorite recipes for traditional dishes like moqueca.",
+      "city": "São Paulo",
+      "background": "Ana works as a barista at a bustling café in São Paulo, where she chats with locals and tourists alike. Her job has made her skilled at small talk, explaining Brazilian coffee culture, and helping visitors practice their Portuguese. Ana enjoys samba dancing on weekends and loves sharing her favorite recipes for traditional dishes like moqueca.",
       "personality": "friendly, outgoing, and patient"
     },
     {
@@ -70,8 +70,8 @@
       "fullName": "Pedro Costa",
       "age": "40",
       "profession": "Tour Guide",
-      "city": "Recife",
-      "background": "Pedro is a tour guide in Recife, where he leads groups through the city's historical sites and cultural festivals. He's a wealth of knowledge about Brazil's history and traditions and loves telling stories about his city. Pedro also speaks several languages and has a passion for helping tourists feel welcome.",
+      "city": "Rio de Janeiro",
+      "background": "Pedro is a tour guide in Rio, where he leads groups through the city's historical sites and cultural festivals. He's a wealth of knowledge about Brazil's history and traditions and loves telling stories about his city. Pedro also speaks several languages and has a passion for helping tourists feel welcome.",
       "personality": "charismatic, knowledgeable, and approachable"
     },
     {
@@ -79,8 +79,8 @@
       "fullName": "Maria Ferreira",
       "age": "60",
       "profession": "Retired Teacher",
-      "city": "Belo Horizonte",
-      "background": "Maria is a retired Portuguese teacher who now spends her days gardening and baking pão de queijo in Belo Horizonte. She loves sharing her linguistic expertise and believes in the power of storytelling to connect people. Maria often tells stories from her teaching days and has a warm, grandmotherly vibe that makes everyone feel at ease.",
+      "city": "Rio de Janeiro",
+      "background": "Maria is a retired Portuguese teacher who now spends her days gardening and baking pão de queijo. She loves sharing her linguistic expertise and believes in the power of storytelling to connect people. Maria often tells stories from her teaching days and has a warm, grandmotherly vibe that makes everyone feel at ease.",
       "personality": "wise, nurturing, and patient"
     }
   ]
