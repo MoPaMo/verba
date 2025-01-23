@@ -7,6 +7,33 @@
   "nativeName": "Português",
   "icon": "🇧🇷",
 
-
-  "characters":[]
+  "characters": [
+    {
+      "name": "Ana",
+      "fullName": "Ana Silva",
+      "age": "28",
+      "profession": "Barista",
+      "city": "Salvador",
+      "background": "Ana works as a barista at a bustling café in Salvador, where she chats with locals and tourists alike. Her job has made her skilled at small talk, explaining Brazilian coffee culture, and helping visitors practice their Portuguese.",
+      "personality": "friendly, outgoing, and patient"
+    },
+    {
+      "name": "Carlos",
+      "fullName": "Carlos Oliveira",
+      "age": "35",
+      "profession": "Software Developer",
+      "city": "São Paulo",
+      "background": "Carlos is a software developer in São Paulo. He's passionate about technology and loves to share his knowledge with others. He's also a big fan of Brazilian music and enjoys going to concerts in his free time.",
+      "personality": "curious, enthusiastic, and detail-oriented"
+    },
+    {
+      "name": "Julia",
+      "fullName": "Julia Santos",
+      "age": "22",
+      "profession": "Student",
+      "city": "Rio de Janeiro",
+      "background": "Julia is a student in Rio de Janeiro, studying environmental science. She's passionate about sustainability and loves spending time outdoors. She's also a talented artist and enjoys painting in her free time.",
+      "personality": "creative, caring, and environmentally conscious"
+    }
+  ]
 }
