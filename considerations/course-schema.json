@@ -6,6 +6,36 @@
   "english": "Portuguese",
   "nativeName": "Português",
   "icon": "🇧🇷",
+  "structure": [
+    {
+      "name": "Unit 1",
+      "CEFR": "A1",
+      "description": "Greetings and Introductions",
+      "chapters": [
+        {
+          "title": "Bem-vindo!",
+          "lessons": [
+            {
+              "title": "Saying hello",
+              "content": "",
+              "type": "dialogue"
+            },
+            {
+              "title": "Introducing yourself",
+              "content": "",
+              "type": "dialogue"
+            },
+            {
+              "title": "Greetings",
+              "content": "",
+              "type": "vocabulary"
+            }
+        ],
+        "vocab": ["Oi", "Olá"]
+        }
+      ]
+    }
+  ],
 
   "characters": [
     {
