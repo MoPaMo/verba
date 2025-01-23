@@ -44,7 +44,7 @@
       "age": "28",
       "profession": "Barista",
       "city": "Salvador",
-      "background": "Ana works as a barista at a bustling café in Salvador, where she chats with locals and tourists alike. Her job has made her skilled at small talk, explaining Brazilian coffee culture, and helping visitors practice their Portuguese.",
+      "background": "Ana works as a barista at a bustling café in Salvador, where she chats with locals and tourists alike. Her job has made her skilled at small talk, explaining Brazilian coffee culture, and helping visitors practice their Portuguese. Ana enjoys samba dancing on weekends and loves sharing her favorite recipes for traditional dishes like moqueca.",
       "personality": "friendly, outgoing, and patient"
     },
     {
@@ -53,7 +53,7 @@
       "age": "35",
       "profession": "Software Developer",
       "city": "São Paulo",
-      "background": "Carlos is a software developer in São Paulo. He's passionate about technology and loves to share his knowledge with others. He's also a big fan of Brazilian music and enjoys going to concerts in his free time.",
+      "background": "Carlos is a software developer in São Paulo who spends his days coding and problem-solving. He's a tech enthusiast and a fan of all things digital, but he also finds time to explore his love for Brazilian rock music and soccer. Carlos enjoys teaching people about the technical terms used in the tech world and Brazilian slang used at soccer games.",
       "personality": "curious, enthusiastic, and detail-oriented"
     },
     {
@@ -62,8 +62,26 @@
       "age": "22",
       "profession": "Student",
       "city": "Rio de Janeiro",
-      "background": "Julia is a student in Rio de Janeiro, studying environmental science. She's passionate about sustainability and loves spending time outdoors. She's also a talented artist and enjoys painting in her free time.",
+      "background": "Julia is a student in Rio de Janeiro, pursuing a degree in environmental science. She loves surfing at Ipanema Beach and raising awareness about sustainability. Julia also volunteers with community programs that teach kids about conservation, and she has a knack for explaining concepts in simple and engaging ways.",
       "personality": "creative, caring, and environmentally conscious"
+    },
+    {
+      "name": "Pedro",
+      "fullName": "Pedro Costa",
+      "age": "40",
+      "profession": "Tour Guide",
+      "city": "Recife",
+      "background": "Pedro is a tour guide in Recife, where he leads groups through the city's historical sites and cultural festivals. He's a wealth of knowledge about Brazil's history and traditions and loves telling stories about his city. Pedro also speaks several languages and has a passion for helping tourists feel welcome.",
+      "personality": "charismatic, knowledgeable, and approachable"
+    },
+    {
+      "name": "Maria",
+      "fullName": "Maria Ferreira",
+      "age": "60",
+      "profession": "Retired Teacher",
+      "city": "Belo Horizonte",
+      "background": "Maria is a retired Portuguese teacher who now spends her days gardening and baking pão de queijo in Belo Horizonte. She loves sharing her linguistic expertise and believes in the power of storytelling to connect people. Maria often tells stories from her teaching days and has a warm, grandmotherly vibe that makes everyone feel at ease.",
+      "personality": "wise, nurturing, and patient"
     }
   ]
 }
