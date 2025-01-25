@@ -104,12 +104,7 @@ export default function LessonInterface() {
           ))}
         </div>
       </div>
-      <Card className="w-full max-w-xl p-6 animate-in">
-        <div className="flex justify-center mb-6">
-          <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center">
-            <span className="text-4xl">🦉</span>
-          </div>
-        </div>
+      <Card className="w-full max-w-xl p-6 animate-in flex flex-col h-full">
         <ExerciseWrapper
           exercise={currentExercise}
           onAnswer={handleAnswer}
@@ -118,13 +113,16 @@ export default function LessonInterface() {
           isCorrect={isCorrect}
         />
         {!showFeedback && (
-          <Button
-            className="w-full mt-6 text-lg h-12"
-            disabled={!selectedAnswer}
-            onClick={handleSubmit}
-          >
-            Check
-          </Button>
+          <>
+            <div className="flex-grow mb-4"></div>
+            <Button
+              className="w-full mt-6 text-lg h-12"
+              disabled={!selectedAnswer}
+              onClick={handleSubmit}
+            >
+              Check
+            </Button>
+          </>
         )}
       </Card>
       {showFeedback && (
