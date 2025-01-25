@@ -28,4 +28,11 @@ export interface Unit {
   completed: boolean;
   locked: boolean;
   lessons: Lesson[];
+  overview: {
+    introduction: string;
+    learningObjectives: string[];
+    timeEstimate: string;
+    skillLevel: string;
+    topics: string[];
+  };
 }

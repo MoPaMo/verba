@@ -10,6 +10,26 @@ const mockUnits: Unit[] = [
     description: "Learn the basics of the language",
     completed: false,
     locked: false,
+    overview: {
+      introduction:
+        "Welcome to your Spanish language journey! This foundational unit is designed to give you the essential building blocks of Spanish. You'll start with basic grammar concepts, move on to the crucial 'to be' verbs (ser and estar), and build your first vocabulary set with common nouns.",
+      learningObjectives: [
+        "Understand basic Spanish grammar rules and sentence structure",
+        "Master the difference between 'ser' and 'estar'",
+        "Build a foundation of essential Spanish nouns",
+        "Construct simple sentences using basic vocabulary",
+      ],
+      timeEstimate: "2-3 weeks",
+      skillLevel: "Beginner",
+      topics: [
+        "Basic Grammar",
+        "Ser vs Estar",
+        "Common Nouns",
+        "Simple Sentences",
+        "Basic Pronunciation",
+      ],
+    },
+
     lessons: [
       {
         id: "1-1",
@@ -43,6 +63,7 @@ const mockUnits: Unit[] = [
       },
     ],
   },
+
   {
     id: "2",
     title: "Basic Grammar",

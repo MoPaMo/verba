@@ -5,7 +5,7 @@ import { LessonCircle } from "./lesson-circle";
 import { LessonDetails } from "./lesson-details";
 import { SectionHeader } from "./section-header";
 import type { Lesson, Unit } from "@/types/lessons";
-
+import { ChapterOverview } from "@/app/home/chapter-overview";
 type LearningPathProps = {
   units: Unit[];
 
@@ -14,7 +14,7 @@ type LearningPathProps = {
 
 export function LearningPath({ units, onSelectLesson }: LearningPathProps) {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
-
+  const [selectedOverview, setSelectedOverview] = useState<number | null>(null);
   const handleLessonClick = (lesson: Lesson) => {
     if (selectedLesson?.id === lesson.id) {
       console.log(`Starting lesson: ${lesson.title}`);
@@ -36,12 +36,12 @@ export function LearningPath({ units, onSelectLesson }: LearningPathProps) {
 
   return (
     <div className="relative w-full max-w-lg mx-auto px-4 py-20">
-      {units.map((section) => (
+      {units.map((section, sectionIndex) => (
         <div key={section.title} className="mb-12 last:mb-0">
           <SectionHeader
             title={section.title}
             description={section.description}
-            onOverviewClick={() => handleSectionOverview(section.title)}
+            onOverviewClick={() => setSelectedOverview(sectionIndex)}
           />
           <div className="relative mt-8">
             <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-[#e5e3e0] dark:bg-[#454558] -translate-x-1/2" />
@@ -80,6 +80,15 @@ export function LearningPath({ units, onSelectLesson }: LearningPathProps) {
               ))}
             </div>
           </div>
+          {selectedOverview === sectionIndex && (
+            <ChapterOverview
+              isOpen={true}
+              onClose={() => setSelectedOverview(null)}
+              title={section.title}
+              description={section.description}
+              content={section.overview}
+            />
+          )}
         </div>
       ))}
     </div>
