@@ -7,6 +7,7 @@ import { Heart, Trophy } from "lucide-react";
 import { exercises } from "@/data/exercises";
 import { FeedbackBar } from "@/app/lesson/[...lesson]/feedback-bar";
 import { ExerciseWrapper } from "@/app/lesson/[...lesson]/exercise-wrapper";
+import Link from "next/link";
 export default function LessonInterface() {
   const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
@@ -31,17 +32,19 @@ export default function LessonInterface() {
             You completed the lesson with {lives}{" "}
             {lives === 1 ? "life" : "lives"} remaining!
           </p>
-          <Button
-            onClick={() => {
-              setCurrentExerciseIndex(0);
-              setSelectedAnswer(null);
-              setShowFeedback(false);
-              setLives(3);
-            }}
-            className="w-full"
-          >
-            Start New Lesson
-          </Button>
+          <Link href="/home">
+            <Button
+              onClick={() => {
+                setCurrentExerciseIndex(0);
+                setSelectedAnswer(null);
+                setShowFeedback(false);
+                setLives(3);
+              }}
+              className="w-full"
+            >
+              Done
+            </Button>
+          </Link>
         </Card>
       </div>
     );
