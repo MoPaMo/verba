@@ -1,5 +1,5 @@
-import { TranslateExercise } from "./translate-exercise"
-import { ListenExercise } from "./listen-exercise"
+import { TranslateExercise } from "../../../components/exercises/translate-exercise"
+import { ListenExercise } from "../../../components/exercises/listen-exercise"
 import type { Exercise } from "@/types/exercise"
 
 interface ExerciseWrapperProps {

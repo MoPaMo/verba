@@ -5,8 +5,8 @@ import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Heart, Trophy } from "lucide-react";
 import { exercises } from "@/data/exercises";
-import { FeedbackBar } from "@/components/exercises/feedback-bar";
-import { ExerciseWrapper } from "@/components/exercises/exercise-wrapper";
+import { FeedbackBar } from "@/app/lesson/[...lesson]/feedback-bar";
+import { ExerciseWrapper } from "@/app/lesson/[...lesson]/exercise-wrapper";
 export default function LessonInterface() {
   const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
