@@ -10,7 +10,7 @@ interface FeedbackBarProps {
 export function FeedbackBar({ isCorrect, message, onContinue }: FeedbackBarProps) {
   return (
     <div 
-      className={`fixed bottom-0 left-0 right-0 p-4 animate-in ${
+      className={`fixed bottom-0 left-0 right-0 p-4 animate-in text-lg ${
         isCorrect ? 'bg-primary/20' : 'bg-destructive/20'
       }`}
     >
