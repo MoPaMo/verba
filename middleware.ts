@@ -12,5 +12,6 @@ export const config = {
     "/settings/:path*",
     "/home/:path*",
     "/setup/:path*",
+    "/lesson/:path*",
   ],
 };
