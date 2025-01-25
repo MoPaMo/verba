@@ -30,9 +30,6 @@ export function LearningPath({ units, onSelectLesson }: LearningPathProps) {
     setSelectedLesson(null);
   };
 
-  const handleSectionOverview = (sectionTitle: string) => {
-    alert(`Opening overview for section: ${sectionTitle}`);
-  };
 
   return (
     <div className="relative w-full max-w-lg mx-auto px-4 py-20">
