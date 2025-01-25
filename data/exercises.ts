@@ -16,8 +16,7 @@ export const exercises: Exercise[] = [
   {
     id: 2,
     type: "fillGap",
-    question: "Complete the sentence",
-    translation: "The cat is on the table",
+    question: "The cat is on the table",
     sentence: "El gato _____ en la mesa",
     answers: [
       { text: "está", correct: true }

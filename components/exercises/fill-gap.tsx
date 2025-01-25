@@ -17,10 +17,8 @@ export function FillGapExercise({
   return (
     <>
       <div className="text-center mb-8">
-        <h2 className="text-xl font-bold mb-4">Fill in the missing word</h2>
-        {exercise.translation && (
-          <p className="">{exercise.translation}</p>
-        )}
+        <h2 className="text-xl font-bold mb-4">Fill in the gap!</h2>
+        <p className="text-lg">{exercise.question}</p>
         <div className="flex flex-wrap justify-center gap-2 text-2xl">
           {words.map((word, index) =>
             word === "_____" ? (
