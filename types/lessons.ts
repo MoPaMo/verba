@@ -28,9 +28,9 @@ export interface Unit {
   completed: boolean;
   locked: boolean;
   lessons: Lesson[];
-  overview?: {
+  overview: {
     introduction: string;
-    learningObjectives: string[];
+    keyPoints: string[];
     timeEstimate: string;
     skillLevel: string;
     topics: string[];

@@ -13,7 +13,7 @@ const mockUnits: Unit[] = [
     overview: {
       introduction:
         "Welcome to your Spanish language journey! This foundational unit is designed to give you the essential building blocks of Spanish. You'll start with basic grammar concepts, move on to the crucial 'to be' verbs (ser and estar), and build your first vocabulary set with common nouns.",
-      learningObjectives: [
+      keyPoints: [
         "Understand basic Spanish grammar rules and sentence structure",
         "Master the difference between 'ser' and 'estar'",
         "Build a foundation of essential Spanish nouns",
@@ -73,7 +73,7 @@ const mockUnits: Unit[] = [
     overview: {
       introduction:
         "In this unit, you'll dive deeper into Spanish grammar. You'll learn about articles and their usage, as well as how to work with present tense verbs. This knowledge will significantly expand your ability to express yourself in Spanish.",
-      learningObjectives: [
+      keyPoints: [
         "Master Spanish articles and their agreement with nouns",
         "Learn present tense conjugation patterns",
         "Understand regular and irregular verbs",
@@ -119,7 +119,7 @@ const mockUnits: Unit[] = [
     overview: {
       introduction:
         "This unit focuses on practical vocabulary you'll use in everyday situations. From ordering food to describing colors and working with numbers, you'll learn essential words and phrases that will help you communicate in real-world scenarios.",
-      learningObjectives: [
+      keyPoints: [
         "Build vocabulary for food and dining situations",
         "Master numbers and counting in Spanish",
         "Learn color terms and their usage",

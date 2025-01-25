@@ -9,18 +9,13 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen, GraduationCap, Clock, Trophy } from "lucide-react";
+import { Unit } from "@/types/lessons";
 interface ChapterOverviewProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
   description: string;
-  content: {
-    introduction: string;
-    learningObjectives: string[];
-    timeEstimate: string;
-    skillLevel: "Beginner" | "Intermediate" | "Advanced";
-    topics: string[];
-  };
+  content: Unit["overview"];
 }
 
 export function ChapterOverview({
@@ -83,7 +78,7 @@ export function ChapterOverview({
                 Learning Objectives
               </h3>
               <ul className="space-y-2">
-                {content.learningObjectives.map((objective, index) => (
+                {content.keyPoints.map((objective, index) => (
                   <li
                     key={index}
                     className="flex items-start gap-2 text-[#4a4a4a] dark:text-[#e5e3e0]"
