@@ -1,4 +1,4 @@
-import type { Exercise } from "@/types/exercise"
+import type { Exercise } from "@/types/exercise";
 
 export const exercises: Exercise[] = [
   {
@@ -15,6 +15,19 @@ export const exercises: Exercise[] = [
   },
   {
     id: 2,
+    type: "fillGap",
+    question: "Complete the sentence",
+    sentence: "El gato _____ en la mesa",
+    gap: "está",
+    answers: [
+      { text: "está", correct: true },
+      { text: "es", correct: false },
+      { text: "tiene", correct: false },
+    ],
+    correctAnswer: "está",
+  },
+  {
+    id: 3,
     type: "listen",
     question: "Listen and select",
     answers: [
@@ -27,7 +40,7 @@ export const exercises: Exercise[] = [
     audioUrl: "/placeholder.mp3",
   },
   {
-    id: 3,
+    id: 4,
     type: "translate",
     question: "Gracias",
     answers: [
@@ -38,5 +51,4 @@ export const exercises: Exercise[] = [
     ],
     correctAnswer: "Thank you",
   },
-]
-
+];
