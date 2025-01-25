@@ -26,7 +26,7 @@ export default function LearnPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#faf8f6] dark:bg-[#2a2a3c] transition-colors duration-300">
+    <div className="min-h-screen transition-colors duration-300">
       <StatsBar stats={stats} />
       <LearningPath units={units} onSelectLesson={handleSelectLesson} />
     </div>

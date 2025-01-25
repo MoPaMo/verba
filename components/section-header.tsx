@@ -19,7 +19,7 @@ export function SectionHeader({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="sticky top-[4.5rem] z-40 -mx-4 px-4 py-4 bg-[#faf8f6]/95 dark:bg-[#2a2a3c]/95 backdrop-blur-sm border-b border-[#e5e3e0] dark:border-[#454558]"
+      className="sticky top-[4.5rem] z-40 -mx-4 px-4 py-4 bg-background/50 backdrop-blur-sm border-b border-[#e5e3e0] dark:border-[#454558]"
     >
       <div className="flex items-start justify-between gap-4">
         <div>
