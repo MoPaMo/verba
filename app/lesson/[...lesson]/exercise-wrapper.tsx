@@ -1,5 +1,5 @@
-import { TranslateExercise } from "../../../components/exercises/translate-exercise";
-import { ListenExercise } from "../../../components/exercises/listen-exercise";
+import { TranslateExercise } from "@/components/exercises/translate-exercise";
+import { ListenExercise } from "@/components/exercises/listen-exercise";
 import { FillGapExercise } from "@/components/exercises/fill-gap";
 import type { Exercise } from "@/types/exercise";
 
