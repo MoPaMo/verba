@@ -17,12 +17,10 @@ export const exercises: Exercise[] = [
     id: 2,
     type: "fillGap",
     question: "Complete the sentence",
+    translation: "The cat is on the table",
     sentence: "El gato _____ en la mesa",
-    gap: "está",
     answers: [
-      { text: "está", correct: true },
-      { text: "es", correct: false },
-      { text: "tiene", correct: false },
+      { text: "está", correct: true }
     ],
     correctAnswer: "está",
   },

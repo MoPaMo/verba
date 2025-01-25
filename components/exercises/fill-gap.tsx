@@ -18,8 +18,8 @@ export function FillGapExercise({
     <>
       <div className="text-center mb-8">
         <h2 className="text-xl font-bold mb-4">Fill in the missing word</h2>
-        {exercise.context && (
-          <p className="text-gray-600">{exercise.translation}</p>
+        {exercise.translation && (
+          <p className="">{exercise.translation}</p>
         )}
         <div className="flex flex-wrap justify-center gap-2 text-2xl">
           {words.map((word, index) =>
