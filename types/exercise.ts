@@ -20,6 +20,7 @@ export interface Exercise {
   sentence?: string;
   gap?: string;
   image?: string;
+  translation?: string;
   pairs?: Array<{
     left: string;
     right: string;
