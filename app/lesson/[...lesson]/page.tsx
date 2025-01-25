@@ -104,7 +104,7 @@ export default function LessonInterface() {
           ))}
         </div>
       </div>
-      <Card className="w-full max-w-xl p-6 animate-in flex flex-col h-full">
+      <Card className="w-full max-w-xl p-6 animate-in flex flex-col flex-grow">
         <ExerciseWrapper
           exercise={currentExercise}
           onAnswer={handleAnswer}
