@@ -3,7 +3,7 @@
 AI powered language learning app!
 Written in React + NextJS, will use an express server and gpt-4o-mini for chats / lesson generation.
 
-! This is a WIP because I needed to ship it for sticky holidays, so for now just the layout works... !
+! This is a WIP because I needed to ship it for sticky holidays, so for now login and lessons work but except for login nothing is persistent, and the lesson generation doesn't work yet (you can already do an example lesson tho)
 
 Try the (nonfunctional) preview here: https://verba.mopamo.dev
 
