@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
-import { BookOpen, GraduationCap, Clock, Trophy } from "lucide-react";
+import { BookOpen, GraduationCap, Clock, Crosshair } from "lucide-react";
 import { Unit } from "@/types/lessons";
 interface ChapterOverviewProps {
   isOpen: boolean;
@@ -74,8 +74,8 @@ export function ChapterOverview({
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-3 text-[#4a4a4a] dark:text-[#e5e3e0] flex items-center gap-2">
-                <Trophy className="w-5 h-5" />
-                Learning Objectives
+                <Crosshair className="w-5 h-5" />
+                Key Points
               </h3>
               <ul className="space-y-2">
                 {content.keyPoints.map((objective, index) => (
