@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -48,12 +49,14 @@ export function LessonDetails({
               {lesson.description}
             </p>
           </div>
-          <Button
-            onClick={() => onStart(lesson)}
-            className="w-full bg-[#7c956c] hover:bg-[#6a8159] dark:bg-[#b3c4a5] dark:hover:bg-[#9fb38f] text-white dark:text-[#2a2a3c]"
-          >
-            Start Lesson
-          </Button>
+          <Link href={`/lesson/${lesson.id}`}>
+            <Button
+              onClick={() => onStart(lesson)}
+              className="w-full bg-[#7c956c] hover:bg-[#6a8159] dark:bg-[#b3c4a5] dark:hover:bg-[#9fb38f] text-white dark:text-[#2a2a3c]"
+            >
+              Start Lesson
+            </Button>
+          </Link>
         </Card>
       </div>
     </motion.div>

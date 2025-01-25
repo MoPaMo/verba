@@ -5,6 +5,7 @@ import { LessonCircle } from "./lesson-circle";
 import { LessonDetails } from "./lesson-details";
 import { SectionHeader } from "./section-header";
 import type { Lesson, Unit } from "@/types/lessons";
+
 import { ChapterOverview } from "@/app/home/chapter-overview";
 type LearningPathProps = {
   units: Unit[];
@@ -26,7 +27,7 @@ export function LearningPath({ units, onSelectLesson }: LearningPathProps) {
   };
 
   const handleStartLesson = (lesson: Lesson) => {
-    console.log(`Starting lesson: ${lesson.title}`);
+
     setSelectedLesson(null);
   };
 
