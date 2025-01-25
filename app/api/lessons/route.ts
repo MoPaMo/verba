@@ -70,6 +70,25 @@ const mockUnits: Unit[] = [
     description: "Master essential grammar concepts",
     completed: false,
     locked: true,
+    overview: {
+      introduction:
+        "In this unit, you'll dive deeper into Spanish grammar. You'll learn about articles and their usage, as well as how to work with present tense verbs. This knowledge will significantly expand your ability to express yourself in Spanish.",
+      learningObjectives: [
+        "Master Spanish articles and their agreement with nouns",
+        "Learn present tense conjugation patterns",
+        "Understand regular and irregular verbs",
+        "Practice forming complete sentences in present tense",
+      ],
+      timeEstimate: "3-4 weeks",
+      skillLevel: "Beginner",
+      topics: [
+        "Articles",
+        "Gender Agreement",
+        "Present Tense",
+        "Regular Verbs",
+        "Irregular Verbs",
+      ],
+    },
     lessons: [
       {
         id: "2-1",
@@ -95,8 +114,28 @@ const mockUnits: Unit[] = [
   },
   {
     id: "3",
-    title: "Everyday Life",
-    description: "Learn vocabulary for daily situations",
+    title: "Practical Vocabulary",
+    description: "Learn useful everyday words and phrases",
+    overview: {
+      introduction:
+        "This unit focuses on practical vocabulary you'll use in everyday situations. From ordering food to describing colors and working with numbers, you'll learn essential words and phrases that will help you communicate in real-world scenarios.",
+      learningObjectives: [
+        "Build vocabulary for food and dining situations",
+        "Master numbers and counting in Spanish",
+        "Learn color terms and their usage",
+        "Practice real-world conversations",
+      ],
+      timeEstimate: "2-3 weeks",
+      skillLevel: "Beginner",
+      topics: [
+        "Food Vocabulary",
+        "Restaurant Phrases",
+        "Numbers 1-100",
+        "Colors",
+        "Descriptive Words",
+      ],
+    },
+
     completed: false,
     locked: true,
     lessons: [
