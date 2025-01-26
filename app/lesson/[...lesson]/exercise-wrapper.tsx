@@ -1,6 +1,9 @@
 import { TranslateExercise } from "@/components/exercises/translate-exercise";
 import { ListenExercise } from "@/components/exercises/listen-exercise";
 import { FillGapExercise } from "@/components/exercises/fill-gap";
+import { WordBlocksExercise } from "@/components/exercises/word-blocks";
+import { ConnectExercise } from "@/components/exercises/connect";
+import { ChatResponseExercise } from "@/components/exercises/chat";
 import type { Exercise } from "@/types/exercise";
 
 interface ExerciseWrapperProps {
@@ -19,6 +22,12 @@ export function ExerciseWrapper(props: ExerciseWrapperProps) {
       return <ListenExercise {...props} />;
     case "fillGap":
       return <FillGapExercise {...props} />;
+    case "wordBlocks":
+      return <WordBlocksExercise {...props} />;
+    case "connect":
+      return <ConnectExercise {...props} />;
+    case "chatResponse":
+      return <ChatResponseExercise {...props} />;
     default:
       throw new Error(`Unknown exercise type: ${props.exercise.type}`);
   }

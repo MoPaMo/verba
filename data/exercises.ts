@@ -18,9 +18,7 @@ export const exercises: Exercise[] = [
     type: "fillGap",
     question: "The cat is on the table",
     sentence: "El gato _____ en la mesa",
-    answers: [
-      { text: "está", correct: true }
-    ],
+    answers: [{ text: "está", correct: true }],
     correctAnswer: "está",
   },
   {
@@ -47,5 +45,37 @@ export const exercises: Exercise[] = [
       { text: "Sorry", correct: false },
     ],
     correctAnswer: "Thank you",
+  },
+  {
+    id: 5,
+    type: "connect",
+    question: "Match the words with their translations",
+    pairs: [
+      { left: "Casa", right: "House" },
+      { left: "Perro", right: "Dog" },
+      { left: "Gato", right: "Cat" },
+      { left: "Árbol", right: "Tree" },
+    ],
+    answers: [],
+    correctAnswer: JSON.stringify([
+      { left: "Casa", right: "House" },
+      { left: "Perro", right: "Dog" },
+      { left: "Gato", right: "Cat" },
+      { left: "Árbol", right: "Tree" },
+    ]),
+  },
+  {
+    id: 6,
+    type: "chatResponse",
+    question: "Choose the best response",
+    context: "¿Cómo estás hoy?",
+    character: "👩",
+    answers: [
+      { text: "Muy bien, gracias. ¿Y tú?", correct: true },
+      { text: "Adiós", correct: false },
+      { text: "Me llamo Juan", correct: false },
+      { text: "Son las tres", correct: false },
+    ],
+    correctAnswer: "Muy bien, gracias. ¿Y tú?",
   },
 ];
