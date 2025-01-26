@@ -9,18 +9,17 @@ export function ChatResponseExercise({
   isCorrect,
 }: ExerciseComponentProps) {
   return (
-    <> 
+    <>
       <div className="mb-8">
         <h2 className="text-xl font-bold mb-4 text-center">
           Choose the best response
         </h2>
-        {/* Chat context */}
         <div className="space-y-4 mb-6">
           <div className="flex gap-2">
-            <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center shrink-0">
+            <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center shrink-0">
               {exercise.character || "👤"}
             </div>
-            <div className="bg-muted rounded-2xl rounded-tl-none px-4 py-2 max-w-[80%]">
+            <div className="bg-accent accent-foreground rounded-2xl rounded-tl-none px-4 py-2 max-w-[80%]">
               {exercise.context}
             </div>
           </div>
