@@ -53,7 +53,7 @@ export function SignUpForm({
     setLoading(false);
 
     if (!signInResult?.error) {
-      window.location.href = "/home";
+      window.location.href = "/setup/pick-lang";
     }
   };
 
