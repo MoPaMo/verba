@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn, shuffleArray } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
 import type { ExerciseComponentProps } from "@/types/exercise";
@@ -12,14 +12,7 @@ interface Connection {
   right: string;
 }
 
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
+
 
 export function ConnectExercise({
   exercise,
