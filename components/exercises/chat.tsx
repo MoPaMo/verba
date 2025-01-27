@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { cn, shuffleArray } from "@/lib/utils";
 import type { ExerciseComponentProps } from "@/types/exercise";
+import { useEffect, useState } from "react";
 export function ChatResponseExercise({
   exercise,
   onAnswer,
@@ -8,7 +9,11 @@ export function ChatResponseExercise({
   showFeedback,
   isCorrect,
 }: ExerciseComponentProps) {
-  const randomizedOptions = shuffleArray(exercise.answers);
+  const [randomizedOptions, setRandomizedOptions] = useState(exercise.answers);
+
+  useEffect(() => {
+    setRandomizedOptions(shuffleArray(exercise.answers));
+  }, [exercise.answers]);
 
   return (
     <>
@@ -29,7 +34,7 @@ export function ChatResponseExercise({
         <div className="space-y-3">
           {randomizedOptions.map((answer, index) => (
             <Button
-              key={index}
+              key={answer.text}
               variant="outline"
               className={cn(
                 "w-full h-auto p-4 text-left justify-start text-lg font-normal",
