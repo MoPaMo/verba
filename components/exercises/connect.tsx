@@ -1,14 +1,26 @@
 "use client";
+
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
 import type { ExerciseComponentProps } from "@/types/exercise";
+
 interface Connection {
   left: string;
   right: string;
 }
+
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export function ConnectExercise({
   exercise,
   onAnswer,
@@ -19,6 +31,20 @@ export function ConnectExercise({
   const [connections, setConnections] = useState<Connection[]>([]);
   const [shake, setShake] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const [randomizedLeft, setRandomizedLeft] = useState<string[]>([]);
+  const [randomizedRight, setRandomizedRight] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (!exercise.pairs) return;
+
+    const leftItems = exercise.pairs.map((pair) => pair.left);
+    const rightItems = exercise.pairs.map((pair) => pair.right);
+
+    setRandomizedLeft(shuffleArray(leftItems));
+    setRandomizedRight(shuffleArray(rightItems));
+  }, [exercise.pairs]);
+
   useEffect(() => {
     if (!exercise.pairs) return;
     const allMatched = exercise.pairs.every((pair) =>
@@ -44,7 +70,7 @@ export function ConnectExercise({
           { left: selectedLeft, right: value },
         ]);
       } else {
-        setShake(selectedLeft); 
+        setShake(selectedLeft);
         setTimeout(() => setShake(null), 500);
       }
       setSelectedLeft(null);
@@ -75,6 +101,15 @@ export function ConnectExercise({
   const isWordConnected = (word: string, side: "left" | "right") => {
     return connections.some((c) => c[side] === word);
   };
+
+  if (
+    !exercise.pairs ||
+    randomizedLeft.length === 0 ||
+    randomizedRight.length === 0
+  ) {
+    return null;
+  }
+
   return (
     <>
       <div className="text-center mb-8">
@@ -110,7 +145,7 @@ export function ConnectExercise({
           )}
         </svg>
         <div className="flex-1 space-y-3 relative z-10">
-          {exercise.pairs?.map(({ left }, index) => (
+          {randomizedLeft.map((left, index) => (
             <motion.div
               key={`left-${index}`}
               animate={{ x: shake === left ? [-10, 10, -10, 10, 0] : 0 }}
@@ -145,7 +180,7 @@ export function ConnectExercise({
           ))}
         </div>
         <div className="flex-1 space-y-3 relative z-10">
-          {exercise.pairs?.map(({ right }, index) => (
+          {randomizedRight.map((right, index) => (
             <Button
               key={`right-${index}`}
               id={`right-${right}`}
