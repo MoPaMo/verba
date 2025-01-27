@@ -14,6 +14,7 @@ export function FillGapExercise({
   const [inputValue, setInputValue] = useState("");
   const words = exercise.sentence?.split(" ") || [];
   const gapIndex = words.findIndex((word) => word === "_____");
+  
   return (
     <>
       <div className="text-center mb-8">
