@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import type { ExerciseComponentProps } from "../../types/exercise";
+import { cn, shuffleArray } from "@/lib/utils";
+import type { ExerciseComponentProps } from "@/types/exercise";
 export function ChatResponseExercise({
   exercise,
   onAnswer,
@@ -8,6 +8,8 @@ export function ChatResponseExercise({
   showFeedback,
   isCorrect,
 }: ExerciseComponentProps) {
+  const randomizedOptions = shuffleArray(exercise.answers);
+
   return (
     <>
       <div className="mb-8">
@@ -25,7 +27,7 @@ export function ChatResponseExercise({
           </div>
         </div>
         <div className="space-y-3">
-          {exercise.answers.map((answer, index) => (
+          {randomizedOptions.map((answer, index) => (
             <Button
               key={index}
               variant="outline"
