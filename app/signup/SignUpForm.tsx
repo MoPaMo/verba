@@ -46,7 +46,7 @@ export function SignUpForm({
 
     if (signInResult?.error) {
       setErrorMessage(
-        "Account created but could not sign in automatically. Please sign in manually.",
+        "Account created but could not sign in automatically. Please sign in manually."
       );
     }
 
@@ -181,7 +181,9 @@ export function SignUpForm({
         By clicking continue, you agree to our{" "}
         <a href="/legal/tos">Terms of Service</a> and{" "}
         <a href="/legal/privacy">Privacy Policy</a>.
-        Coming from hackclub? The account creation password is written in the update notes!
+        <br />
+        Coming from hackclub? The account creation password is written in the
+        update notes!
       </div>
     </div>
   );
