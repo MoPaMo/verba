@@ -1,6 +1,6 @@
 // seed.ts
 import { PrismaClient } from "@prisma/client";
-import languages from "@/data/languages";
+import languages from "../data/languages.js";
 const prisma = new PrismaClient();
 
 async function main() {
