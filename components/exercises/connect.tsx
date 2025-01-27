@@ -1,69 +1,79 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { X } from "lucide-react";
 import type { ExerciseComponentProps } from "@/types/exercise";
 interface Connection {
   left: string;
   right: string;
-  isCorrect?: boolean;
-  isAnimating?: boolean;
 }
 export function ConnectExercise({
   exercise,
   onAnswer,
   selectedAnswer,
   showFeedback,
-  isCorrect,
 }: ExerciseComponentProps) {
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const [connections, setConnections] = useState<Connection[]>([]);
   const [shake, setShake] = useState<string | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (
-      connections.length === (exercise.pairs?.length || 0) &&
-      connections.every((c) => c.isCorrect)
-    ) {
-      onAnswer(JSON.stringify(connections));
+    if (!exercise.pairs) return;
+    const allMatched = exercise.pairs.every((pair) =>
+      connections.some(
+        (conn) => conn.left === pair.left && conn.right === pair.right
+      )
+    );
+    if (allMatched && connections.length === exercise.pairs.length) {
+      onAnswer(JSON.stringify(exercise.pairs));
     }
-  }, [connections, exercise.pairs?.length, onAnswer]);
-  const isWordConnected = (word: string, side: "left" | "right") => {
-    return connections.some((c) => c[side] === word);
-  };
-  const findCorrectPair = (left: string) => {
-    return exercise.pairs?.find((pair) => pair.left === left)?.right;
-  };
+  }, [connections, exercise.pairs, onAnswer]);
   const handleSelect = (side: "left" | "right", value: string) => {
     if (showFeedback) return;
     if (side === "left") {
       setSelectedLeft(value);
     } else if (selectedLeft) {
-      const correctRight = findCorrectPair(selectedLeft);
-      const isCorrectMatch = value === correctRight;
-      if (isCorrectMatch) {
+      const correctPair = exercise.pairs?.find(
+        (pair) => pair.left === selectedLeft
+      );
+      if (correctPair?.right === value) {
         setConnections((prev) => [
           ...prev,
-          {
-            left: selectedLeft,
-            right: value,
-            isCorrect: true,
-          },
+          { left: selectedLeft, right: value },
         ]);
       } else {
-        setShake(selectedLeft);
+        setShake(selectedLeft); 
         setTimeout(() => setShake(null), 500);
       }
       setSelectedLeft(null);
     }
   };
-  const removeConnection = (connection: Connection) => {
-    setConnections((prev) =>
-      prev.filter(
-        (c) => c.left !== connection.left && c.right !== connection.right
-      )
-    );
+  const removeConnection = (leftWord: string) => {
+    setConnections((prev) => prev.filter((c) => c.left !== leftWord));
+  };
+  const getLineCoordinates = () => {
+    if (!containerRef.current) return [];
+    const containerRect = containerRef.current.getBoundingClientRect();
+    return connections
+      .map((connection) => {
+        const leftEl = document.getElementById(`left-${connection.left}`);
+        const rightEl = document.getElementById(`right-${connection.right}`);
+        if (!leftEl || !rightEl) return null;
+        const leftRect = leftEl.getBoundingClientRect();
+        const rightRect = rightEl.getBoundingClientRect();
+        return {
+          x1: leftRect.right - containerRect.left,
+          y1: leftRect.top - containerRect.top + leftRect.height / 2,
+          x2: rightRect.left - containerRect.left,
+          y2: rightRect.top - containerRect.top + rightRect.height / 2,
+        };
+      })
+      .filter(Boolean);
+  };
+  const isWordConnected = (word: string, side: "left" | "right") => {
+    return connections.some((c) => c[side] === word);
   };
   return (
     <>
@@ -73,44 +83,31 @@ export function ConnectExercise({
           Tap a word on the left, then tap its match on the right
         </p>
       </div>
-      <div className="flex justify-between gap-8 relative">
+      <div
+        className="flex justify-between gap-8 relative min-h-[200px]"
+        ref={containerRef}
+      >
         <svg
           className="absolute inset-0 pointer-events-none"
           style={{ zIndex: 0 }}
+          width="100%"
+          height="100%"
         >
-          {connections.map((connection, i) => {
-            const leftEl = document.getElementById(`left-${connection.left}`);
-            const rightEl = document.getElementById(
-              `right-${connection.right}`
-            );
-            if (!leftEl || !rightEl) return null;
-            const leftRect = leftEl.getBoundingClientRect();
-            const rightRect = rightEl.getBoundingClientRect();
-            const parentRect =
-              leftEl.parentElement?.parentElement?.getBoundingClientRect() || {
-                x: 0,
-                y: 0,
-              };
-            const x1 = leftRect.right - parentRect.x;
-            const y1 = leftRect.top - parentRect.y + leftRect.height / 2;
-            const x2 = rightRect.left - parentRect.x;
-            const y2 = rightRect.top - parentRect.y + rightRect.height / 2;
-            return (
-              <line
-                key={i}
-                x1={x1}
-                y1={y1}
-                x2={x2}
-                y2={y2}
-                stroke="currentColor"
-                strokeWidth="2"
-                className={cn(
-                  "opacity-20",
-                  connection.isCorrect && "text-primary opacity-40"
-                )}
-              />
-            );
-          })}
+          {getLineCoordinates().map(
+            (line, i) =>
+              line && (
+                <line
+                  key={i}
+                  x1={line.x1}
+                  y1={line.y1}
+                  x2={line.x2}
+                  y2={line.y2}
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="text-primary opacity-40"
+                />
+              )
+          )}
         </svg>
         <div className="flex-1 space-y-3 relative z-10">
           {exercise.pairs?.map(({ left }, index) => (
@@ -133,17 +130,15 @@ export function ConnectExercise({
               >
                 {left}
                 {isWordConnected(left, "left") && (
-                  <button
+                  <div
                     onClick={(e) => {
                       e.stopPropagation();
-                      removeConnection(
-                        connections.find((c) => c.left === left)!
-                      );
+                      removeConnection(left);
                     }}
-                    className="absolute -right-2 -top-2 p-1 rounded-full bg-background border"
+                    className="absolute -right-2 -top-2 p-1 rounded-full bg-background border hover:bg-muted cursor-pointer"
                   >
                     <X className="w-3 h-3" />
-                  </button>
+                  </div>
                 )}
               </Button>
             </motion.div>
