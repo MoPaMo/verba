@@ -5,8 +5,6 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/auth";
 const prisma = new PrismaClient();
 
-import languages from "@/data/languages";
-
 export async function getLangs() {
   const session = await getServerSession(authOptions);
 
@@ -18,6 +16,16 @@ export async function getLangs() {
   }
 
   try {
+    const languages = await prisma.language.findMany({
+      select: {
+        code: true,
+        flag: true,
+        name: true,
+        disabled: true,
+        nativeName: true,
+      },
+    });
+
     const userLanguages = await prisma.userLanguage.findMany({
       where: {
         userId: session.user.id,
